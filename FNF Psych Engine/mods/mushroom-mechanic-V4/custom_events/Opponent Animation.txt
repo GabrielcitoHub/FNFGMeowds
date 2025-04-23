@@ -1,0 +1,3 @@
+Makes the opponent play an animation
+Value 1: Animation name
+Value 2: if the animation should be forced (false by default)

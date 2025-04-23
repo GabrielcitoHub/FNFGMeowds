@@ -1,0 +1,27 @@
+{
+	"storyName": "Vs Me",
+	"difficulties": "Hard",
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"weekBefore": "tutorial",
+	"startUnlocked": true,
+	"hideStoryMode": false,
+	"songs": [
+		[
+			"VsChara",
+			"face",
+			[
+				146,
+				113,
+				253
+			]
+		]
+	],
+	"weekCharacters": [
+		"",
+		"",
+		"bf"
+	],
+	"hiddenUntilUnlocked": true,
+	"weekName": "Undertale"
+}

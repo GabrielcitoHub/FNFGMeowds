@@ -1,0 +1,43 @@
+These are all the functions and variables that you can use in any other script when the multiplayer script is active
+
+Functions:
+
+	- goodNoteHitP2: called when P2 hits a note
+			use:		goodNoteHitP2(id, noteData, noteType, isSustainNote)			use like opponentNoteHit()
+		
+	- noteMissP2: called when P2 misses a note
+			use:		noteMissP2(id, noteData, noteType, isSustainNote)			use like noteMiss()
+	
+	- noteMissPressP2: called when P2 presses a key but there was no note (if ghost tapping is disabled)
+			use:		noteMissPressP2(direction)			direction = 0 to (number of strum notes - 1)
+			
+	- onGhostTapP2: called when P2 presses a key but there was no note (if ghost tapping is enabled)
+			use:		onGhostTapP2(direction)			direction = 0 to (number of strum notes - 1)
+			
+	- onKeyPressP2: called when P2 presses a key
+			use:		onKeyPressP2(key)			key = 0 to (number of keys - 1)
+
+Variables:
+
+	- multiScript: will always be active if the multiplayer script is active
+	- botplayP2: true if P2 is using botplay, false if not
+	
+	- scoreP2: the score that P2 has
+	- missesP2: all the misses that P2 has (including miss press misses)
+	- noteMissesP2: the note misses that P2 has (only misses from notes)
+	- comboP2: the combo of notes that P2 has
+	- hitsP2: how many notes P2 has hit
+	
+	- sicksP2: how many sick/perfect note hits
+	- goodsP2: how many good note hits
+	- badsP2: how many bad note hits
+	- shitsP2: how many almost missed note hits
+	
+	- ratingPercentP2: the percentage of P2's accuracy (from 0 to 1)
+	- ratingNameP2: a string with the name of the current rating for P2
+	- ratingFCP2: a string with the current FC that P2 has ("SFC", "GFC", "FC", "SDCB", "Clear")
+
+	Stuff from the settings (these are set at the beginning of onCreate):
+
+	- multiStrumLock: strumLock enabled/disabled
+	- multiNoIgnore: dontHitIgnore enabled/disabled

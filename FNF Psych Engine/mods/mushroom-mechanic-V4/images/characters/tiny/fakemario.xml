@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="fakemario.png">
+<SubTexture name="fakemario idle0000" x="32" y="0" width="16" height="32" frameX="0" frameY="0" frameWidth="16" frameHeight="32" />
+<SubTexture name="fakemario left0000" x="48" y="0" width="17" height="32" frameX="0" frameY="0" frameWidth="17" frameHeight="32" />
+<SubTexture name="fakemario left0001" x="65" y="0" width="17" height="32" frameX="0" frameY="0" frameWidth="17" frameHeight="32" />
+<SubTexture name="fakemario right0000" x="0" y="35" width="18" height="32" frameX="0" frameY="0" frameWidth="18" frameHeight="32" />
+<SubTexture name="fakemario right0001" x="18" y="35" width="17" height="32" frameX="0" frameY="0" frameWidth="17" frameHeight="32" />
+<SubTexture name="fakemario left0002" x="35" y="35" width="17" height="32" frameX="0" frameY="0" frameWidth="17" frameHeight="32" />
+<SubTexture name="fakemario left0003" x="52" y="35" width="17" height="31" frameX="0" frameY="0" frameWidth="17" frameHeight="31" />
+<SubTexture name="fakemario left0004" x="82" y="0" width="18" height="29" frameX="0" frameY="0" frameWidth="18" frameHeight="29" />
+<SubTexture name="fakemario up0000" x="0" y="0" width="16" height="35" frameX="0" frameY="0" frameWidth="16" frameHeight="35" />
+<SubTexture name="fakemario up0001" x="16" y="0" width="16" height="33" frameX="0" frameY="0" frameWidth="16" frameHeight="33" />
+<SubTexture name="fakemario down0000" x="0" y="67" width="23" height="25" frameX="0" frameY="0" frameWidth="23" frameHeight="25" />
+<SubTexture name="fakemario down0001" x="23" y="67" width="24" height="23" frameX="0" frameY="0" frameWidth="24" frameHeight="23" />
+<SubTexture name="fakemario down0002" x="47" y="67" width="24" height="22" frameX="0" frameY="0" frameWidth="24" frameHeight="22" />
+</TextureAtlas>

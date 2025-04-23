@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="mx.png">
+<SubTexture name="mx idle0000" x="0" y="0" width="32" height="42" frameX="0" frameY="0" frameWidth="32" frameHeight="42" />
+<SubTexture name="mx idle0001" x="72" y="0" width="24" height="40" frameX="0" frameY="0" frameWidth="24" frameHeight="40" />
+<SubTexture name="mx idle0002" x="32" y="0" width="40" height="41" frameX="0" frameY="0" frameWidth="40" frameHeight="41" />
+<SubTexture name="mx jump0000" x="0" y="42" width="34" height="38" frameX="0" frameY="0" frameWidth="34" frameHeight="38" />
+<SubTexture name="mx up0000" x="0" y="80" width="39" height="32" frameX="0" frameY="0" frameWidth="39" frameHeight="32" />
+<SubTexture name="mx up0001" x="39" y="80" width="39" height="32" frameX="0" frameY="0" frameWidth="39" frameHeight="32" />
+<SubTexture name="mx down0000" x="132" y="30" width="39" height="28" frameX="0" frameY="0" frameWidth="39" frameHeight="28" />
+<SubTexture name="mx down0001" x="132" y="58" width="38" height="28" frameX="0" frameY="0" frameWidth="38" frameHeight="28" />
+<SubTexture name="mx left0000" x="78" y="80" width="51" height="31" frameX="0" frameY="0" frameWidth="51" frameHeight="31" />
+<SubTexture name="mx left0001" x="132" y="0" width="51" height="30" frameX="0" frameY="0" frameWidth="51" frameHeight="30" />
+<SubTexture name="mx right0000" x="34" y="42" width="35" height="33" frameX="0" frameY="0" frameWidth="35" frameHeight="33" />
+<SubTexture name="mx right0001" x="96" y="0" width="36" height="33" frameX="0" frameY="0" frameWidth="36" frameHeight="33" />
+</TextureAtlas>

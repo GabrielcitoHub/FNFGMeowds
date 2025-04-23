@@ -1,0 +1,63 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [-170, 80],
+			"anim": "idle",
+			"fps": 10,
+			"name": "fakemario idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [-158, 80],
+			"anim": "singLEFT",
+			"fps": 10,
+			"name": "fakemario left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [-169, 80],
+			"anim": "singDOWN",
+			"fps": 10,
+			"name": "fakemario down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [-174, 95],
+			"anim": "singUP",
+			"fps": 10,
+			"name": "fakemario up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [-169, 80],
+			"anim": "singRIGHT",
+			"fps": 10,
+			"name": "fakemario right",
+			"indices": []
+		},
+		{
+			"offsets": [-152, 45],
+			"indices": [],
+			"fps": 4,
+			"anim": "death",
+			"loop": false,
+			"name": "fakemario death"
+		}
+	],
+	"vocals_file": "",
+	"no_antialiasing": true,
+	"image": "characters/fakemario",
+	"position": [0, 0],
+	"healthicon": "face",
+	"flip_x": false,
+	"healthbar_colors": [161, 161, 161],
+	"camera_position": [10, 0],
+	"sing_duration": 4,
+	"scale": 1,
+	"_editor_isPlayer": false
+}

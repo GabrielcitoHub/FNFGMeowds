@@ -1,0 +1,63 @@
+{
+	"animations": [
+		{
+			"offsets": [0, -4],
+			"loop": false,
+			"fps": 8,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "bfmxfire right"
+		},
+		{
+			"offsets": [10, 1],
+			"loop": false,
+			"fps": 8,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "bfmxfire left"
+		},
+		{
+			"offsets": [5, 11],
+			"loop": false,
+			"fps": 8,
+			"anim": "singUP",
+			"indices": [],
+			"name": "bfmxfire up"
+		},
+		{
+			"offsets": [0, -9],
+			"loop": false,
+			"fps": 8,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "bfmxfire down"
+		},
+		{
+			"offsets": [0, 2],
+			"loop": true,
+			"fps": 8,
+			"anim": "run",
+			"indices": [],
+			"name": "bfmxfire run"
+		},
+		{
+			"offsets": [0, 0],
+			"loop": true,
+			"fps": 10,
+			"anim": "idle",
+			"indices": [],
+			"name": "bfmxfire idle"
+		}
+	],
+	"vocals_file": "",
+	"no_antialiasing": true,
+	"image": "characters/bfmxfire",
+	"position": [0, 0],
+	"healthicon": "face",
+	"flip_x": false,
+	"healthbar_colors": [161, 161, 161],
+	"camera_position": [0, 0],
+	"sing_duration": 4,
+	"scale": 1,
+	"_editor_isPlayer": true
+}

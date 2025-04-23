@@ -1,0 +1,55 @@
+{
+	"animations": [
+		{
+			"loop": true,
+			"offsets": [-234, 46],
+			"anim": "idle",
+			"fps": 12,
+			"name": "mx idle",
+			"indices": []
+		},
+		{
+			"offsets": [-145, 46],
+			"indices": [],
+			"fps": 16,
+			"anim": "singLEFT",
+			"loop": true,
+			"name": "mx left"
+		},
+		{
+			"offsets": [-227, 40],
+			"indices": [],
+			"fps": 16,
+			"anim": "singRIGHT",
+			"loop": true,
+			"name": "mx right"
+		},
+		{
+			"offsets": [-220, 30],
+			"indices": [],
+			"fps": 16,
+			"anim": "singDOWN",
+			"loop": true,
+			"name": "mx down"
+		},
+		{
+			"offsets": [-210, 50],
+			"indices": [],
+			"fps": 16,
+			"anim": "singUP",
+			"loop": true,
+			"name": "mx up"
+		}
+	],
+	"vocals_file": "",
+	"no_antialiasing": true,
+	"image": "characters/mx",
+	"position": [0, 0],
+	"healthicon": "face",
+	"flip_x": false,
+	"healthbar_colors": [161, 161, 161],
+	"camera_position": [0, 0],
+	"sing_duration": 4,
+	"scale": 5,
+	"_editor_isPlayer": false
+}

@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="marionear.png">
+<SubTexture name="marionear idle0000" x="56" y="44" width="22" height="30" frameX="0" frameY="0" frameWidth="22" frameHeight="30" />
+<SubTexture name="marionear idle0001" x="75" y="79" width="22" height="30" frameX="0" frameY="0" frameWidth="22" frameHeight="30" />
+<SubTexture name="marionear idle0002" x="97" y="79" width="21" height="30" frameX="0" frameY="0" frameWidth="21" frameHeight="30" />
+<SubTexture name="marionear up0000" x="38" y="44" width="18" height="34" frameX="0" frameY="0" frameWidth="18" frameHeight="34" />
+<SubTexture name="marionear up0001" x="90" y="34" width="18" height="33" frameX="0" frameY="0" frameWidth="18" frameHeight="33" />
+<SubTexture name="marionear down0000" x="55" y="113" width="21" height="24" frameX="0" frameY="0" frameWidth="21" frameHeight="24" />
+<SubTexture name="marionear down0001" x="35" y="113" width="20" height="25" frameX="0" frameY="0" frameWidth="20" frameHeight="25" />
+<SubTexture name="marionear left0000" x="126" y="0" width="32" height="30" frameX="0" frameY="0" frameWidth="32" frameHeight="30" />
+<SubTexture name="marionear left0001" x="0" y="113" width="35" height="30" frameX="0" frameY="0" frameWidth="35" frameHeight="30" />
+<SubTexture name="marionear right0000" x="126" y="30" width="24" height="30" frameX="0" frameY="0" frameWidth="24" frameHeight="30" />
+<SubTexture name="marionear right0001" x="126" y="60" width="23" height="30" frameX="0" frameY="0" frameWidth="23" frameHeight="30" />
+<SubTexture name="marionear powerup0000" x="90" y="0" width="36" height="34" frameX="0" frameY="0" frameWidth="36" frameHeight="34" />
+<SubTexture name="marionear powerup0001" x="38" y="79" width="37" height="33" frameX="0" frameY="0" frameWidth="37" frameHeight="33" />
+<SubTexture name="marionear powerup0002" x="0" y="44" width="38" height="35" frameX="0" frameY="0" frameWidth="38" frameHeight="35" />
+<SubTexture name="marionear powerup0003" x="0" y="79" width="38" height="34" frameX="0" frameY="0" frameWidth="38" frameHeight="34" />
+<SubTexture name="marionear powerup0004" x="0" y="0" width="44" height="44" frameX="0" frameY="0" frameWidth="44" frameHeight="44" />
+<SubTexture name="marionear powerup0005" x="44" y="0" width="46" height="41" frameX="0" frameY="0" frameWidth="46" frameHeight="41" />
+<SubTexture name="marionear powerup0006" x="44" y="0" width="46" height="41" frameX="0" frameY="-3" frameWidth="46" frameHeight="44" />
+<SubTexture name="marionear powerup0007" x="44" y="0" width="46" height="41" frameX="0" frameY="-3" frameWidth="46" frameHeight="44" />
+<SubTexture name="marionear powerup0008" x="44" y="0" width="46" height="41" frameX="0" frameY="-3" frameWidth="46" frameHeight="44" />
+<SubTexture name="marionear powerup0009" x="44" y="0" width="46" height="41" frameX="0" frameY="-3" frameWidth="46" frameHeight="44" />
+<SubTexture name="marionear powerup0010" x="44" y="0" width="46" height="41" frameX="0" frameY="-3" frameWidth="46" frameHeight="44" />
+<SubTexture name="marionear powerup0011" x="44" y="0" width="46" height="41" frameX="0" frameY="-3" frameWidth="46" frameHeight="44" />
+<SubTexture name="marionear powerup0012" x="44" y="0" width="46" height="41" frameX="0" frameY="-3" frameWidth="46" frameHeight="44" />
+<SubTexture name="marionear powerup0013" x="44" y="0" width="46" height="41" frameX="0" frameY="-3" frameWidth="46" frameHeight="44" />
+<SubTexture name="marionear powerup0014" x="44" y="0" width="46" height="41" frameX="0" frameY="-3" frameWidth="46" frameHeight="44" />
+<SubTexture name="marionear powerup0015" x="44" y="0" width="46" height="41" frameX="0" frameY="-3" frameWidth="46" frameHeight="44" />
+<SubTexture name="marionear powerup0016" x="44" y="0" width="46" height="41" frameX="0" frameY="-3" frameWidth="46" frameHeight="44" />
+<SubTexture name="marionear powerup0017" x="44" y="0" width="46" height="41" frameX="0" frameY="-3" frameWidth="46" frameHeight="44" />
+<SubTexture name="marionear powerup0018" x="44" y="0" width="46" height="41" frameX="0" frameY="-3" frameWidth="46" frameHeight="44" />
+<SubTexture name="marionear powerup0019" x="44" y="0" width="46" height="41" frameX="0" frameY="-3" frameWidth="46" frameHeight="44" />
+<SubTexture name="marionear powerup0020" x="44" y="0" width="46" height="41" frameX="0" frameY="-3" frameWidth="46" frameHeight="44" />
+<SubTexture name="marionear powerup0021" x="44" y="0" width="46" height="41" frameX="0" frameY="-3" frameWidth="46" frameHeight="44" />
+<SubTexture name="marionear powerup0022" x="44" y="0" width="46" height="41" frameX="0" frameY="-3" frameWidth="46" frameHeight="44" />
+<SubTexture name="marionear powerup0023" x="44" y="0" width="46" height="41" frameX="0" frameY="-3" frameWidth="46" frameHeight="44" />
+<SubTexture name="marionear powerup0024" x="44" y="0" width="46" height="41" frameX="0" frameY="-3" frameWidth="46" frameHeight="44" />
+</TextureAtlas>

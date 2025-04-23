@@ -1,0 +1,55 @@
+{
+	"animations": [
+		{
+			"loop": true,
+			"offsets": [-370, -47],
+			"anim": "idle",
+			"fps": 12,
+			"name": "bigmx idle",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [-377, -40],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "bigmx left",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [-390, -50],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "bigmx down",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [-390, -50],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "bigmx up",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [-390, -40],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "bigmx right",
+			"indices": []
+		}
+	],
+	"vocals_file": "",
+	"no_antialiasing": true,
+	"image": "characters/bigmx",
+	"position": [0, 0],
+	"healthicon": "face",
+	"flip_x": false,
+	"healthbar_colors": [161, 161, 161],
+	"camera_position": [170, 20],
+	"sing_duration": 4,
+	"scale": 4,
+	"_editor_isPlayer": false
+}

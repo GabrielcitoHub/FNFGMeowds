@@ -1,0 +1,55 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [-84, -449],
+			"anim": "idle",
+			"fps": 0,
+			"name": "chara idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [-10, -450],
+			"anim": "singLEFT",
+			"fps": 12,
+			"name": "chara left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [-110, -520],
+			"anim": "singDOWN",
+			"fps": 12,
+			"name": "chara down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [-23, -436],
+			"anim": "singUP",
+			"fps": 12,
+			"name": "chara up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [-110, -490],
+			"anim": "singRIGHT",
+			"fps": 12,
+			"name": "chara right",
+			"indices": []
+		}
+	],
+	"vocals_file": "",
+	"no_antialiasing": true,
+	"image": "characters/chara",
+	"position": [0, 0],
+	"healthicon": "face",
+	"flip_x": false,
+	"healthbar_colors": [161, 161, 161],
+	"camera_position": [30, 330],
+	"sing_duration": 4,
+	"scale": 2,
+	"_editor_isPlayer": false
+}

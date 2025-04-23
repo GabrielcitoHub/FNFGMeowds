@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="bfmxtiny.png">
+<SubTexture name="bfmxtiny idle0000" x="60" y="0" width="105" height="100" frameX="0" frameY="0" frameWidth="105" frameHeight="100" />
+<SubTexture name="bfmxtiny idle0001" x="140" y="110" width="80" height="95" frameX="0" frameY="0" frameWidth="80" frameHeight="95" />
+<SubTexture name="bfmxtiny idle0002" x="255" y="0" width="140" height="95" frameX="0" frameY="0" frameWidth="140" frameHeight="95" />
+<SubTexture name="bfmxtiny idle0003" x="80" y="305" width="90" height="90" frameX="0" frameY="0" frameWidth="90" frameHeight="90" />
+<SubTexture name="bfmxtiny left0000" x="165" y="0" width="90" height="100" frameX="0" frameY="0" frameWidth="90" frameHeight="100" />
+<SubTexture name="bfmxtiny idle0004" x="255" y="95" width="75" height="95" frameX="0" frameY="0" frameWidth="75" frameHeight="95" />
+<SubTexture name="bfmxtiny left0001" x="0" y="210" width="80" height="95" frameX="0" frameY="0" frameWidth="80" frameHeight="95" />
+<SubTexture name="bfmxtiny left0002" x="80" y="210" width="80" height="95" frameX="0" frameY="0" frameWidth="80" frameHeight="95" />
+<SubTexture name="bfmxtiny idle0005" x="0" y="0" width="60" height="110" frameX="0" frameY="0" frameWidth="60" frameHeight="110" />
+<SubTexture name="bfmxtiny up0000" x="160" y="210" width="70" height="95" frameX="0" frameY="0" frameWidth="70" frameHeight="95" />
+<SubTexture name="bfmxtiny up0001" x="230" y="210" width="70" height="95" frameX="0" frameY="0" frameWidth="70" frameHeight="95" />
+<SubTexture name="bfmxtiny right0000" x="300" y="210" width="90" height="95" frameX="0" frameY="0" frameWidth="90" frameHeight="95" />
+<SubTexture name="bfmxtiny right0001" x="395" y="0" width="75" height="95" frameX="0" frameY="0" frameWidth="75" frameHeight="95" />
+<SubTexture name="bfmxtiny right0002" x="395" y="0" width="75" height="95" frameX="0" frameY="0" frameWidth="75" frameHeight="95" />
+<SubTexture name="bfmxtiny down0000" x="395" y="190" width="70" height="85" frameX="0" frameY="0" frameWidth="70" frameHeight="85" />
+<SubTexture name="bfmxtiny down0001" x="240" y="305" width="80" height="75" frameX="0" frameY="0" frameWidth="80" frameHeight="75" />
+<SubTexture name="bfmxtiny run0000" x="0" y="110" width="70" height="100" frameX="0" frameY="0" frameWidth="70" frameHeight="100" />
+<SubTexture name="bfmxtiny run0001" x="70" y="110" width="70" height="100" frameX="0" frameY="0" frameWidth="70" frameHeight="100" />
+<SubTexture name="bfmxtiny run0002" x="395" y="95" width="70" height="95" frameX="0" frameY="0" frameWidth="70" frameHeight="95" />
+<SubTexture name="bfmxtiny down0002" x="170" y="305" width="70" height="85" frameX="0" frameY="0" frameWidth="70" frameHeight="85" />
+<SubTexture name="bfmxtiny run0003" x="395" y="95" width="70" height="95" frameX="0" frameY="0" frameWidth="70" frameHeight="95" />
+<SubTexture name="bfmxtiny skid0000" x="0" y="305" width="80" height="95" frameX="0" frameY="0" frameWidth="80" frameHeight="95" />
+</TextureAtlas>

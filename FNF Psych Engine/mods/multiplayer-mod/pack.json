@@ -1,0 +1,9 @@
+{
+	"name": "Multiplayer Mod",
+	"description": "Mod to play fnf with your friends!",
+	"restart":false,
+	"runsGlobally": true,
+	"color": [170, 0, 255],
+	"discordRPC": "863222024192262205",
+	"iconFramerate": 10
+}
