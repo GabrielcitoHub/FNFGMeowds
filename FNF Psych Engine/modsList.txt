@@ -1,10 +1,6 @@
 multiplayer-mod|0
-motherboard-overload-demo|1
 mushroom-mechanic-V4|1
-VS-Tabi-Revival-main|1
 vs-chara|1
-mid-fight-masses|1
-FINAL ZONE FINAL ESCAPE|1
 test|0
 boss-rusher|0
 editor|0
