@@ -151,40 +151,43 @@ end
 
 updatedisplay()
 
+local noteTime = 0
+
+function onUpdatePost(elapsed)
+    local songPos = getSongPosition()
+    local strumLineY = getPropertyFromGroup('playerStrums', powerupnote, 'y')
+
+    local songSpeed = getProperty("songSpeed")
+
+    -- Debugging print (optional)
+    -- debugPrint("Scroll Speed: " .. tostring(scrollSpeed))
+    -- debugPrint("Song Speed: " .. tostring(songSpeed))
+
+    -- Use them in your movement calculation as needed
+
+    local distance = ((noteTime - songPos) / 1000) * 112 * scrollSpeed * songSpeed
+
+    if not downscroll then
+        setProperty('powerup.y', strumLineY + distance)
+    else
+        setProperty('powerup.y', strumLineY - distance)
+    end
+    setProperty("powerup.x", getPropertyFromGroup("playerStrums", powerupnote, "x"))
+end
+
 function spawnCustomNote(noteData)
-    local spawnx = 850
+    noteTime = (powerupbeat * 60000) / bpm
     powerupnote = noteData
-    if noteData == 0 then
-        spawnx = spawnx - 100
-    elseif notedata == 1 then
-        spawnx = spawnx + 0
-    elseif notedata == 2 then
-        spawnx = spawnx + 60
-    elseif notedata == 3 then
-        spawnx = spawnx + 250
-    end
-    if middlescroll then
-        spawnx = spawnx - 90
-    end
+
+    local spawnx = getPropertyFromGroup('playerStrums', powerupnote, 'x')
+    local spawny = -1200  -- well below the visible screen height (usually ~720px)
+
     -- Notedata _ This refers to the note direction (0 = left, 1 = down, 2 = up, 3 = right)
-    makeLuaSprite('powerup',tostring('powerstates/'..powerup+1),spawnx,850);
+    makeLuaSprite('powerup',tostring('powerstates/'..powerup+1),spawnx,spawny);
     spawnedpowerup = powerup+1
     scaleObject('powerup',0.6,0.6)
     setObjectCamera("powerup","hud")
     addLuaSprite('powerup', true)
-
-    local stepDuration = 60000 / (bpm * 4) -- Step duration in milliseconds
-
-    -- Print for debugging (optional)
-    -- debugPrint(tostring('stepDuration:' .. stepDuration))
-    
-    if not downscroll then
-        doTweenY('moveY', 'powerup', -100, stepDuration * (1.5/(bpm/1-2)), 'linear')
-    else
-        setProperty('powerup.y', -100)
-        doTweenY('moveY', 'powerup', 800, stepDuration * (1.5/(bpm/1)), 'linear')
-    end
-    -- debugPrint(powerupnote)
 end
 
 function mushroommiss()
@@ -217,9 +220,11 @@ function removePowerup()
     if not songName == "Game over" then
         powerupbeat = curBeat + 16 + math.random(4)
     else
-        powerupbeat = curBeat + 12 + math.random(6)
+        powerupbeat = curBeat + 24 + math.random(6)
     end
+    haspowerupbeat = false
     powerupspawned = false
+    alreadymissed = true
 end
 
 function getOpponentX()
@@ -320,7 +325,7 @@ function spawnFireball()
         addAnimationByPrefix(id, 'idle', 'fireball', 24, true)  -- Adjust the prefix and FPS as needed
 
         -- Start playing the animation
-        objectPlayAnimation(id, 'idle', true)
+        playAnim(id, 'idle', true)
         
         -- Scale and add the sprite to the game
         if songName == "Gameover" then
@@ -436,7 +441,6 @@ function onUpdate()
     local songPosition = getSongPosition()  -- Current song position in milliseconds
     -- local songLength = getPropertyFromClass('Conductor', 'songLength')      -- Total song length in milliseconds
     -- debugPrint(songLength - songPosition)
-    setProperty('powerup.x', getPropertyFromGroup('playerStrums', powerupnote, 'x'))
     if songLength - songPosition < 2500 then
         if not datasaved then
             datasaved = true
@@ -579,7 +583,7 @@ function testpowerup(note, state)
     if powerupspawned then
         local yPos = getProperty('powerup.y')
         local powerupYThreshold = getPropertyFromGroup('playerStrums', powerupnote, 'y')
-        local collisionRange = 125 -- Adjust this range for better detection
+        local collisionRange = 225 -- Adjust this range for better detection
         -- debugPrint(getProperty('powerup.y'))
 
         if not downscroll then
@@ -649,21 +653,16 @@ function onTimerCompleted(tag,loops,loopsleft)
 end
 
 function onSpawnNote(membersIndex, noteData, noteType, isSustainNote, strumTime)
+    if not mustHitSection then return end
     -- debugPrint(tostring(curBeat.."/ "..powerupbeat))
     if alreadymissed then
         if haspowerupbeat == false then
             if powerup < 2 then
                 haspowerupbeat = true
-                powerupbeat = curBeat + 14 + math.random(4)
-                alreadymissed = false
-            end
-        end
-    end
-    if haspowerupbeat then
-        if curBeat >= powerupbeat then
-            if not powerupspawned then
+                powerupbeat = curBeat + 24 + math.random(6)
                 spawnCustomNote(noteData)
                 powerupspawned = true
+                alreadymissed = false
             end
         end
     end
