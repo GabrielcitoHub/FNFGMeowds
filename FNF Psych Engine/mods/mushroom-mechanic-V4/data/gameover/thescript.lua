@@ -96,27 +96,33 @@ function onCountdownTick(swagCounter)
     end
 end
 
+local pauseMenuSprs = {}
+
 function initPauseMenuGui()
     makeLuaSprite('substateBG', 'pause/bg', 0, 0)
     scaleObject("substateBG", 10, 10)
-    setObjectCamera('substateBG', 'other') -- 'other' to ensure it shows up in the substate
-    screenCenter('substateBG', 'X')
-    screenCenter('substateBG', 'Y')
-    setProperty('substateBG.antialiasing', false)
+    screenCenter('substateBG', 'xy')
 
     makeLuaSprite('pauseText', 'pause/pause', 0, 0)
     scaleObject("pauseText", 6, 6)
-    setObjectCamera('pauseText', 'other') -- 'other' to ensure it shows up in the substate
     screenCenter('pauseText', 'X')
-    setProperty('pauseText.antialiasing', false)
     setProperty('pauseText.y', 42)
     setProperty('pauseText.x', getProperty("pauseText.x") -4.05)
 
     makeLuaText('songnameText', 'GAME OVER', 200, 346.48, 183)
     scaleObject("songnameText", 3, 3)
     setTextFont("songnameText", "smb1.ttf")
-    setObjectCamera('songnameText', 'other')
-    setProperty('songnameText.antialiasing', false)
+
+    table.insert(pauseMenuSprs,"substateBG")
+    table.insert(pauseMenuSprs,"pauseText")
+    table.insert(pauseMenuSprs,"songnameText")
+
+    for i,v in ipairs(pauseMenuSprs) do
+        setObjectCamera(v, 'other')
+        setProperty(tostring(v..".antialiasing"),valse)
+        setProperty(tostring(v..".visible"),false)
+        addLuaSprite(v,true)
+    end
 end
 
 -- Custom script to change Boyfriend's and Opponent's strum notes in FNF Psych Engine
@@ -562,11 +568,10 @@ function onCustomSubstateUpdate(name, elapsed)
     if name == "customPause" then
         -- Check if the player presses the Space key to exit the substate
         if getPropertyFromClass('flixel.FlxG', 'keys.justPressed.ENTER') then
+            for i,v in ipairs(pauseMenuSprs) do
+                setProperty(tostring(v..".visible"),false)
+            end
             closeCustomSubstate() -- Close the substate and return to the main game
-            
-            removeLuaSprite("substateBG",false)
-            removeLuaText("songnameText",false)
-            removeLuaSprite("pauseText",false)
         elseif getPropertyFromClass('flixel.FlxG', 'keys.justPressed.ESCAPE') then
             exitSong(true)
         end
@@ -580,13 +585,13 @@ function onCustomSubstateUpdate(name, elapsed)
 end
 
 function onPause()
-    if songStarted == true then
+    if songStarted then
         if not keyPressed("Left") or not keyPressed("Right") or not keyPressed("Up") or not keyPressed("Down") then
+            for i,v in ipairs(pauseMenuSprs) do
+                setProperty(tostring(v..".visible"),true)
+            end
             openCustomSubstate('customPause', true)
             -- Create elements of the substate when it is initialized
-            addLuaSprite('substateBG', true)
-            addLuaText('songnameText',true)
-            addLuaSprite('pauseText', true)
         end
     end
     if not keyPressed("Left") or not keyPressed("Right") or not keyPressed("Up") or not keyPressed("Down") then
