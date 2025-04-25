@@ -488,6 +488,9 @@ function onUpdate()
     if isTouchingSprite("gui") then
         if firePressed <= 0 then
             fireFireball()
+            if songName == "Gameover" then
+                setOnLuas("mxbfjump",true)
+            end
         end
         firePressed = 0.2
     end

@@ -11,11 +11,11 @@ local overworld = false
 local mxJumpSteps = {}
 local block = 0
 
-function getBoyfriendX()
+local function getBoyfriendX()
     return getProperty('boyfriend.x')
 end
 
-function getBoyfriendY()
+local function getBoyfriendY()
     return getProperty('boyfriend.y')
 end
 
@@ -631,9 +631,10 @@ function onCustomSubstateUpdate(name, elapsed)
 
         local diff = getProperty('progressbar.width') / 16
         local startX = getProperty('progressbar.x') + diff -- posición inicial
-        local width = getProperty('progressbar.width') - diff -- ancho total de la barra
+        local width = getProperty('progressbar.width') - (diff * 4.4) -- ancho total de la barra
     
         setProperty('mxStand.x', startX + (progress * width))
+
         if keyJustPressed("up") then
             selectedOption = selectedOption - 1
         elseif keyJustPressed("down") then
@@ -728,6 +729,7 @@ function onSectionHit()
     if curSection == 48 or curSection == 128 then
         if curSection == 128 then
             overworld = true
+            setProperty("boyfriend.x", inGameBoyfriendX)
         end
         removeBgs()
         cancelTimer("block")
