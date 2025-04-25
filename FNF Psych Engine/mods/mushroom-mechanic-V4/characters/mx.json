@@ -2,14 +2,14 @@
 	"animations": [
 		{
 			"loop": true,
-			"offsets": [-234, 46],
+			"offsets": [-234, 44],
 			"anim": "idle",
 			"fps": 12,
 			"name": "mx idle",
 			"indices": []
 		},
 		{
-			"offsets": [-145, 46],
+			"offsets": [-145, 44],
 			"indices": [],
 			"fps": 16,
 			"anim": "singLEFT",

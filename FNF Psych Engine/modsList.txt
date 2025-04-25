@@ -1,6 +1,6 @@
 multiplayer-mod|0
 mushroom-mechanic-V4|1
-vs-chara|1
+vs-chara|0
 test|0
 boss-rusher|0
 editor|0

@@ -13,9 +13,9 @@
 				[972.972972972973, 1, 0, "", 3],
 				[1135.13513513513, 2, 0, "", 3.5]
 			],
-			"changeBPM": false,
 			"bpm": 185,
-			"startTime": 0
+			"startTime": 0,
+			"changeBPM": false
 		},
 		{
 			"sectionNotes": [
@@ -2025,7 +2025,7 @@
 			"altAnim": false,
 			"bpm": 185,
 			"changeBPM": false,
-			"mustHitSection": false
+			"mustHitSection": true
 		},
 		{
 			"sectionNotes": [
@@ -2322,7 +2322,7 @@
 			"altAnim": false,
 			"bpm": 185,
 			"changeBPM": false,
-			"mustHitSection": false
+			"mustHitSection": true
 		},
 		{
 			"sectionNotes": [
@@ -2567,7 +2567,7 @@
 			"altAnim": false,
 			"bpm": 185,
 			"changeBPM": false,
-			"mustHitSection": false
+			"mustHitSection": true
 		},
 		{
 			"sectionNotes": [
@@ -2693,7 +2693,7 @@
 			"altAnim": false,
 			"bpm": 185,
 			"changeBPM": false,
-			"mustHitSection": false
+			"mustHitSection": true
 		},
 		{
 			"sectionNotes": [

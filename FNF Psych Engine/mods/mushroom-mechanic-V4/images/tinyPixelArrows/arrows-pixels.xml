@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="arrows-pixels.png">
-    <!-- Created by hand 69.6.9.69120 -->
+    <!-- Created by hand 67.6.9.67120 -->
 	  <!-- http://youtube.com -->
     <SubTexture name="arrowLEFT0000" x="0" y="0" width="16" height="17"/>
     <SubTexture name="left press0000" x="0" y="34" width="16" height="17" frameX="0" frameY="0" frameWidth="16" frameHeight="16"/>
