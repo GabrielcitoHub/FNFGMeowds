@@ -1,2 +1,2 @@
-function onCreate()
+function onCreatePost()
 end

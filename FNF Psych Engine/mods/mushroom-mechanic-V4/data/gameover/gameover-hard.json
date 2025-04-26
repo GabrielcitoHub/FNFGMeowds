@@ -13,9 +13,9 @@
 				[972.972972972973, 1, 0, "", 3],
 				[1135.13513513513, 2, 0, "", 3.5]
 			],
+			"changeBPM": false,
 			"bpm": 185,
-			"startTime": 0,
-			"changeBPM": false
+			"startTime": 0
 		},
 		{
 			"sectionNotes": [
@@ -2368,7 +2368,7 @@
 			"sectionNotes": [
 				[166054.054054054, 4, 0],
 				[166054.054054054, 6, 0],
-				[166054.054054054, 2, 1986.48648648649],
+				[166054.054054054, 2, 1662.16216216216],
 				[166216.216216216, 7, 0],
 				[166378.378378378, 6, 0],
 				[166540.540540541, 7, 0],
@@ -2871,10 +2871,10 @@
 	],
 	"player2": "fakemario",
 	"disableNoteRGB": true,
-	"splashSkin": "noteSplashes\\splash-pixel",
+	"splashSkin": "noteSplashes\\noteSplashes-splash-pixel",
 	"song": "Gameover",
 	"validScore": true,
-	"arrowSkin": "upscaled_arrows-pixels",
+	"arrowSkin": "noteSkins\\NOTE_assets-arrows-pixel",
 	"format": "psych_v1_convert",
 	"speed": 2.8,
 	"gfVersion": "gf-pixel",

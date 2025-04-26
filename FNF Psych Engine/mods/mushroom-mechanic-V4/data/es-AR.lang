@@ -1,68 +1,68 @@
-English (North America)
+Español (Argentina)
 
 // Difficulties
 difficulty_: ""
 
-difficulty_easy: "Easy"
+difficulty_easy: "Facil"
 difficulty_normal: "Normal"
-difficulty_hard: "Hard"
+difficulty_hard: "Dificil"
 
 // Achievements
 achievement_: ""
 description_: ""
 
-achievement_friday_night_play: "Freaky on a Friday Night"
-description_friday_night_play: "Play on a Friday... Night."
+achievement_friday_night_play: "Freaky en una Friday Night"
+description_friday_night_play: "Juega el Viernes... por la Noche."
 
-achievement_week1_nomiss: "She Calls Me Daddy Too"
-description_week1_nomiss: "Beat Week 1 on Hard with no Misses."
+achievement_week1_nomiss: "Ella Me Lamma Daddy Tambieb"
+description_week1_nomiss: "Vence la Week 1 en Hard sin Misses."
 
-achievement_week2_nomiss: "No More Tricks"
-description_week2_nomiss: "Beat Week 2 on Hard with no Misses."
+achievement_week2_nomiss: "No Mas Trucos"
+description_week2_nomiss: "Vence la Week 2 en Hard sin Misses."
 
-achievement_week3_nomiss: "Call Me The Hitman"
-description_week3_nomiss: "Beat Week 3 on Hard with no Misses."
+achievement_week3_nomiss: "Llamame El Hitman"
+description_week3_nomiss: "Vence la Week 3 en Hard sin Misses."
 
-achievement_week4_nomiss: "Lady Killer"
-description_week4_nomiss: "Beat Week 4 on Hard with no Misses."
+achievement_week4_nomiss: "Asesono de Damas"
+description_week4_nomiss: "Vence la Week 4 en Hard sin Misses."
 
-achievement_week5_nomiss: "Missless Christmas"
-description_week5_nomiss: "Beat Week 5 on Hard with no Misses."
+achievement_week5_nomiss: "Christmas Sin Fallos"
+description_week5_nomiss: "Vence la Week 5 en Hard sin Misses."
 
 achievement_week6_nomiss: "Highscore!!"
-description_week6_nomiss: "Beat Week 6 on Hard with no Misses."
+description_week6_nomiss: "Vence la Week 6 en Hard sin Misses."
 
-achievement_week7_nomiss: "God Effing Damn It!"
-description_week7_nomiss: "Beat Week 7 on Hard with no Misses."
+achievement_week7_nomiss: "Dios Mierrding Damn It!"
+description_week7_nomiss: "Vence la Week 7 en Hard sin Misses."
 
-achievement_ur_bad: "What a Funkin' Disaster!"
-description_ur_bad: "Complete a Song with a rating lower than 20%."
+achievement_ur_bad: "Que Funkin' Disaster!"
+description_ur_bad: "Complete una Cancion con un rating menor a 20%."
 
-achievement_ur_good: "Perfectionist"
-description_ur_good: "Complete a Song with a rating of 100%."
+achievement_ur_good: "Perfeccionista"
+description_ur_good: "Complete una Cancion con un rating de 100%."
 
 achievement_roadkill_enthusiast: "Roadkill Enthusiast"
-description_roadkill_enthusiast: "Watch the Henchmen die 50 times."
+description_roadkill_enthusiast: "Mira al Henchmen morir 50 veces."
 
 achievement_oversinging: "Oversinging Much...?"
-description_oversinging: "Sing for 10 seconds without going back to Idle."
+description_oversinging: "Canta por 10 seconds sin volver a Idle."
 
-achievement_hype: "Hyperactive"
-description_hype: "Finish a Song without going back to Idle."
+achievement_hype: "Hyperactivo"
+description_hype: "Termina una Cancion sin volver a Idle."
 
 achievement_two_keys: "Just the Two of Us"
-description_two_keys: "Finish a Song pressing only two keys."
+description_two_keys: "Termina una Cancion presionando solo dos teclas."
 
-achievement_toastie: "Toaster Gamer"
-description_toastie: "Have you tried to run the game on a toaster?"
+achievement_toastie: "Tostadora Gamer"
+description_toastie: "Intentaste ejecutar el juego en una tostadora?"
 
 achievement_debugger: "Debugger"
-description_debugger: "Beat the \"Test\" Stage from the Chart Editor."
+description_debugger: "Vence el Stage \"Test\" desde el Chart Editor."
 
 // Freeplay
-musicplayer_playing: "PLAYING: {1}"
-musicplayer_paused: "PLAYING: {1} (PAUSED)"
-musicplayer_tip: "Press SPACE to Pause / Press ESCAPE to Exit / Press R to Reset the Song"
+musicplayer_playing: "REPRODUCIENDO: {1}"
+musicplayer_paused: "REPRODUCIENDO: {1} (PAUSADO)"
+musicplayer_tip: "Presiona SPACE para Pausar / Presiona ESCAPE para Exit / Presiona R para Resetear la Cancion"
 
 // Options
 setting_scroll_type: "Scroll Type"
@@ -71,39 +71,39 @@ setting_playback_rate: "Playback Rate"
 setting_health_gain_multiplier: "Health Gain Multiplier"
 setting_health_loss_multiplier: "Health Loss Multiplier"
 setting_instakill_on_miss: "Instakill on Miss"
-setting_practice_mode: "Practice Mode"
+setting_practice_mode: "Modo Practica"
 setting_botplay: "Botplay"
 
 gameplay_menu: "Gameplay Settings"
 graphics_menu: "Graphic Settings"
 visuals_menu: "Visual Settings"
 
-setting_low_quality: "Low Quality"
-description_low_quality: "If checked, disables some background details,\ndecreases loading times and improves performance."
+setting_low_quality: "Calidad_Baja"
+description_low_quality: "Si activado, desabilita algunos detalles del background,\ndisminuye tiempos de carga y ayuda al rendimiento."
 
 setting_anti-aliasing: "Anti-Aliasing"
-description_anti-aliasing: "If unchecked, disables anti-aliasing, increases performance\nat the cost of sharper visuals."
+description_anti-aliasing: "Si desactivado, desabilita anti-aliasing, Aumenta el rendimiento\na el costo de visuales filosos."
 
 setting_shaders: "Shaders"
-description_shaders: "If unchecked, disables shaders.\nIt's used for some visual effects, and also CPU intensive for weaker PCs."
+description_shaders: "Si desactivado, desabilita los shaders.\nSe usa para algunos efectos visuales, y tambien gasta much CPU en PCs patata."
 
 setting_gpu_caching: "GPU Caching"
-description_gpu_caching: "If checked, allows the GPU to be used for caching textures, decreasing RAM usage.\nDon't turn this on if you have a shitty Graphics Card."
+description_gpu_caching: "Si activado, permite a la GPU para usarse para almacenar texturas, disminuye el uso de RAM.\nNo actives esto si tienes una Tarjeta Grapica de mierda."
 
 setting_framerate: "Framerate"
-description_framerate: "Pretty self explanatory, isn't it?"
+description_framerate: "Se explica solo, no?"
 
 setting_note_skins: "Note Skins:"
-description_note_skins: "Select your prefered Note skin."
+description_note_skins: "Selecciona tu Note skin preferida."
 
 setting_note_splashes: "Note Splashes:"
-description_note_splashes: "Select your prefered Note Splash variation or turn it off."
+description_note_splashes: "Selecciona tu Note Splash preferido variacion or desactivalo."
 
 setting_note_splash_opacity: "Note Splash Opacity"
-description_note_splash_opacity: "How much transparent should the Note Splashes be."
+description_note_splash_opacity: "Que tan transparente deberian ser las Note Splashes."
 
-setting_hide_hud: "Hide HUD"
-description_hide_hud: "If checked, hides most HUD elements."
+setting_hide_hud: "Esconder HUD"
+description_hide_hud: "Si activado, esconde la mayoria de los elementos HUD."
 
 setting_time_bar: "Time Bar:"
 description_time_bar: "What should the Time Bar display?"

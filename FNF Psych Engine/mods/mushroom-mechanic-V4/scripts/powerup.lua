@@ -12,21 +12,15 @@ local spawnedpowerup = 0
 local fireballs = {}
 local fireballsamount = 0
 
-local leftpressed = 0
-local uppressed = 0
-local downpressed = 0
-local rightpressed = 0
-local spacepressed = 0
 local firePressed = 0
--- load, saving of levels beaten
-local path1 = 'data/special/levelsBeaten.txt'
-local path2 = 'data/special/FClevelsBeaten.txt'
 local beatenlist
 local fclist
 local bltrimmed
 local fcbltrimmed
 local found
 local fcfound
+
+local scaleSize = 10
 
 function split(inputstr, sep)
     if sep == nil then
@@ -129,10 +123,10 @@ end
 function onEndSong()
 end
 
-
 function updatedisplay()
     makeLuaSprite('powerdisplay',tostring('powerstates/'..powerup),50,600);
-    scaleObject('powerdisplay',0.4,0.4)
+    scaleObject('powerdisplay',scaleSize,scaleSize)
+    setProperty('powerdisplay.antialiasing', false)
     setObjectCamera("powerdisplay","hud")
     addLuaSprite('powerdisplay', true)
 end
@@ -143,7 +137,8 @@ function spawnSticker(fc)
     else
         makeLuaSprite('sticker',tostring('special/crown'),150,592);
     end
-    scaleObject('sticker',0.45,0.45)
+    scaleObject('sticker',scaleSize,scaleSize)
+    setProperty('sticker.antialiasing', false)
     setObjectCamera("sticker","hud")
     addLuaSprite('sticker', true)
     -- debugPrint("Sticker!!")
@@ -185,8 +180,9 @@ function spawnCustomNote(noteData)
     -- Notedata _ This refers to the note direction (0 = left, 1 = down, 2 = up, 3 = right)
     makeLuaSprite('powerup',tostring('powerstates/'..powerup+1),spawnx,spawny);
     spawnedpowerup = powerup+1
-    scaleObject('powerup',0.6,0.6)
-    setObjectCamera("powerup","hud")
+    scaleObject('powerup',scaleSize * 1.2,scaleSize * 1.2)
+    setProperty('powerup.antialiasing', false)
+    setObjectCamera("powerup","other")
     addLuaSprite('powerup', true)
 end
 
@@ -196,15 +192,13 @@ function mushroommiss()
             alreadymissed = true
         end
     end
-    if flashing == false then
+    if not flashing then
         powerup = powerup - 1
         flashing = true
         runTimer("updatebf",0.01)
         runTimer('flashing',0.05,32)
         -- debugPrint(powerup)
         if powerup >= 0 then
-            lastbfx = getBoyfriendX()
-            lastbfy = getBoyfriendY()
             playSound('power_down', 1)
             updatedisplay()
         else
@@ -333,6 +327,7 @@ function spawnFireball()
         else
             scaleObject(id, 1, 1)
         end
+        setProperty(tostring(id..".antialiasing"), false)
         addLuaSprite(id, true)
         if not isBoyfriendFlipped() then
             setProperty(tostring(id..'.flipX'), true)
@@ -448,11 +443,6 @@ function onUpdate()
             endSongSave()  -- Save near the end of the song
         end
     end
-    leftpressed =- 0.1
-    uppressed =- 0.1
-    downpressed =- 0.1
-    rightpressed =- 0.1
-    spacepressed =- 0.1
     firePressed = firePressed - 0.1
     if haspowerupbeat == true then
         if not middlescroll then
@@ -479,7 +469,7 @@ function onUpdate()
         end
     end
 
-    if getPropertyFromClass("flixel.FlxG","keys.justPressed.SPACE") then
+    if getPropertyFromClass("flixel.FlxG","keys.justPressed."..getModSetting("cfgmxactionkey")["keyboard"]) or gamepadJustPressed(0, getModSetting("cfgmxactionkey")["gamepad"]) then
         fireFireball()
     end
     showHideMobileGUI(isOnMobile())
@@ -501,6 +491,7 @@ function showHideMobileGUI(state)
         makeLuaSprite('gui','buttons/fire_button',50,400)
         scaleObject('gui',2,2)
         setObjectCamera("gui","hud")
+        setProperty("gui.antialiasing", false)
         addLuaSprite('gui')
     else
         removeLuaSprite('gui')

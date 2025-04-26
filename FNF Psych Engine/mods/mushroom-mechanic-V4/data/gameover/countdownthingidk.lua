@@ -1,4 +1,5 @@
-function onCreate()  
+if version <= "0.7.3" then return end
+function onCreate()
     -- Preload sounds
     precacheSound('countdown/countdown')
     precacheSound('countdown/countdownend')

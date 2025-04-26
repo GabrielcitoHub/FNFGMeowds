@@ -82,11 +82,59 @@ local function makelegs()
     playAnim("legs", 'legs', true)
 end
 
+local function makespacebar()
+    if getModSetting("cfgmxactionkey")["keyboard"] == "SPACE" then
+        makeAnimatedLuaSprite("spacebar", "buttons/space", 0, 0)
+    else
+        makeAnimatedLuaSprite("spacebar", "buttons/key", 0, 0)
+    end
+    setObjectCamera("spacebar","hud")
+    scaleObject("spacebar", 20, 20)
+    screenCenter("spacebar","xy")
+    setProperty('spacebar.antialiasing', false)
+    setProperty("spacebar.alpha", (getModSetting("cfgspacebaropacity") / 100))
+    
+    -- Debugging to make sure the animation exists and groundlevel is valid
+    -- debugPrint("groundlevel: " .. tostring(groundlevel))
+    
+    addAnimationByPrefix("spacebar", 'spawn', 'spawn', 0, false) -- Ensure 'run' is the correct animation prefix
+    addAnimationByPrefix("spacebar", 'press', 'press', 0, false)
+    addAnimationByPrefix("spacebar", 'pressloop', 'pressloop', 30, true)
+end
+
 function onCreate()
+    debugPrint(getModSetting("cfgmxactionkey")[keyboard])
+    
+    precacheImage("pause/bg")
+    precacheImage("pause/pause")
+    precacheImage("pause/progressbar")
+    precacheImage("pause/stand")
+    precacheImage("pause/selector")
+
+    precacheSound("menu_select")
+    precacheSound("pause")
+    precacheSound("stomp")
+    precacheSound("coin")
+
+    precacheImage('gameover/bf-dead')
     precacheImage('background/pcport/loop')
+    precacheImage('background/pcport/loopdark')
+    precacheImage('background/pcport/legs')
+    precacheImage('background/pcport/bflegs')
+    precacheImage('background/pcport/endpipe')
+    precacheImage('background/pcport/hiddenwall')
+    precacheImage('background/pcport/luigi')
+    precacheImage('background/pcport/popup')
+
+    precacheImage('buttons/space')
+    precacheImage('buttons/key')
+
     setPropertyFromClass('lime.app.Application', 'current.window.title', 'Funk Mix: Game Over')
     setPropertyFromClass('substates.GameOverSubstate', 'deathSoundName', 'empty')
-    initPauseMenu()
+
+    if getModSetting("cfgspacebar") then
+        makespacebar()
+    end
 end
 
 function onCountdownTick(swagCounter)
@@ -101,17 +149,6 @@ local pauseMenuSprs = {}
 local selectedOption = 1
 
 local function initPauseMenu()
-    precacheImage("pause/bg")
-    precacheImage("pause/pause")
-    precacheImage("pause/progressbar")
-    precacheImage("pause/stand")
-    precacheImage("pause/selector")
-
-    precacheSound("menu_select")
-    precacheSound("pause")
-    precacheSound("stomp")
-    precacheSound("coin")
-    
     makeLuaSprite('substateBG', 'pause/bg', 0, 0)
     scaleObject("substateBG", 10, 10)
     screenCenter('substateBG', 'xy')
@@ -332,7 +369,7 @@ function onUpdate(elapsed)
     inGameBoyfriendY = bfY + bfVelocityY * elapsed
     
     -- Check if the space key is pressed for jumping
-    if bfOnGround and getPropertyFromClass("flixel.FlxG","keys.justPressed.SPACE") and mxrunning then
+    if bfOnGround and getPropertyFromClass("flixel.FlxG","keys.justPressed."..getModSetting("cfgmxactionkey")["keyboard"]) or gamepadJustPressed(0, getModSetting("cfgmxactionkey")["gamepad"]) and mxrunning then
         bfmxjump = true
     end
 
@@ -402,8 +439,9 @@ function onUpdate(elapsed)
 
     -- move bf and mx
     if mxrunning then
+        updatedMovingSpeed = (runningspeed * 60) * elapsed
         setProperty("boyfriend.flipX", false)
-        inGameBoyfriendX = inGameBoyfriendX - runningspeed
+        inGameBoyfriendX = inGameBoyfriendX - updatedMovingSpeed
         setProperty("boyfriend.x", inGameBoyfriendX)
         setProperty("boyfriend.y", inGameBoyfriendY)
         if camerabffollow then
@@ -414,7 +452,7 @@ function onUpdate(elapsed)
             triggerEvent("Camera Follow Pos", inGameBoyfriendX-200, groundlevel-100)
         end
 
-        inGameDadX = inGameDadX - runningspeed
+        inGameDadX = inGameDadX - updatedMovingSpeed
         setProperty("dad.x", inGameDadX)
         setProperty("dad.y", inGameDadY)
         -- MX Legs
@@ -468,19 +506,15 @@ local function createLoopGround()
         runTimer("pit2",4.5)
         runTimer("mxJump",3.1)
         runTimer("mxJump1",4.9)
-        if botPlay then
-            runTimer("autoJump",1.95)
-            runTimer("autoJump1",2.7)
-            runTimer("autoJump2",4.1)
-        end
+        runTimer("autoJump",1.95)
+        runTimer("autoJump1",2.6)
+        runTimer("autoJump2",4.1)
     else
         runTimer("pit2",3.5)
-        runTimer("pit3",4.6)
-        if botPlay then
-            runTimer("autoJump",3.3)
-            runTimer("autoJump1",4.3)
-            cancelTimer("autoJump2")
-        end
+        runTimer("pit3",4.5)
+        runTimer("autoJump",3)
+        runTimer("autoJump1",4)
+        cancelTimer("autoJump2")
     end
 end
 
@@ -600,9 +634,30 @@ function onTimerCompleted(tag, loops, loopsLeft)
     elseif tag == "mxJump" or tag == "mxJump1" then
         mxJump = true
     elseif tag == "autoJump" or tag == "autoJump1" or tag == "autoJump2" then
-        if bfOnGround then
-            bfmxjump = true
+        if botPlay then
+            if bfOnGround then
+                bfmxjump = true
+            end
+        else
+            if not overworld and tag == "autoJump1" or not getModSetting("cfgspacebar") then return end
+            addLuaSprite("spacebar", true)
+            playAnim("spacebar", 'spawn', true)
+            runTimer("spaceNow",0.2)
         end
+    elseif tag == "spaceNow" then
+        playAnim("spacebar", 'press', true)
+        runTimer("spaceLoop",0.3)
+    elseif tag == "spaceLoop" then
+        if flashingLights then
+            playAnim("spacebar", 'pressloop', true)
+        end
+        if not overworld then
+            runTimer("spaceHide",1)
+        else
+            runTimer("spaceHide",0.4)
+        end
+    elseif tag == "spaceHide" then
+        removeLuaSprite("spacebar",false)
     elseif tag == "end" then
         endSong()
     end
@@ -739,6 +794,9 @@ function onSectionHit()
         cancelTimer("mxJump1")
         cancelTimer("breakBlock")
         cancelTimer("breakBlock1")
+        cancelTimer("autoJump")
+        cancelTimer("autoJump1")
+        cancelTimer("autoJump2")
         makelegs()
         makebflegs()
         createLoopGround()
