@@ -83,10 +83,16 @@ local function makelegs()
 end
 
 local function makespacebar()
+    local spaceSprPath = "buttons/space"
+    local keySprPath = "buttons/key"
+    if getPropertyFromClass("backend.ClientPrefs", "data.language") == "es-AR" then
+        spaceSprPath = "es-AR/buttons/space"
+        keySprPath = "es-AR/buttons/key"
+    end
     if getModSetting("cfgmxactionkey")["keyboard"] == "SPACE" then
-        makeAnimatedLuaSprite("spacebar", "buttons/space", 0, 0)
+        makeAnimatedLuaSprite("spacebar", spaceSprPath, 0, 0)
     else
-        makeAnimatedLuaSprite("spacebar", "buttons/key", 0, 0)
+        makeAnimatedLuaSprite("spacebar", keySprPath, 0, 0)
     end
     setObjectCamera("spacebar","hud")
     scaleObject("spacebar", 20, 20)
@@ -103,10 +109,10 @@ local function makespacebar()
 end
 
 function onCreate()
-    debugPrint(getModSetting("cfgmxactionkey")[keyboard])
-    
+    local lang = getPropertyFromClass("backend.ClientPrefs", "data.language")
+
     precacheImage("pause/bg")
-    precacheImage("pause/pause")
+    
     precacheImage("pause/progressbar")
     precacheImage("pause/stand")
     precacheImage("pause/selector")
@@ -124,11 +130,17 @@ function onCreate()
     precacheImage('background/pcport/endpipe')
     precacheImage('background/pcport/hiddenwall')
     precacheImage('background/pcport/luigi')
-    precacheImage('background/pcport/popup')
-
-    precacheImage('buttons/space')
-    precacheImage('buttons/key')
-
+    if lang ~= "es-AR" then
+        precacheImage("pause/PAUSE")
+        precacheImage('background/pcport/popup')
+        precacheImage('buttons/space')
+        precacheImage('buttons/key')
+    else
+        precacheImage("es-AR/pause/PAUSE")
+        precacheImage('es-AR/background/pcport/popup')
+        precacheImage('es-AR/buttons/space')
+        precacheImage('es-AR/buttons/key')
+    end
     setPropertyFromClass('lime.app.Application', 'current.window.title', 'Funk Mix: Game Over')
     setPropertyFromClass('substates.GameOverSubstate', 'deathSoundName', 'empty')
 
@@ -145,6 +157,7 @@ function onCountdownTick(swagCounter)
 end
 
 local options = {"CONTINUE","RETRY","OPTIONS","END"}
+local spanishOptions = {"CONTINUAR", "REINTENTAR", "OPCIONES", "END"}
 local pauseMenuSprs = {}
 local selectedOption = 1
 
@@ -153,7 +166,11 @@ local function initPauseMenu()
     scaleObject("substateBG", 10, 10)
     screenCenter('substateBG', 'xy')
 
-    makeLuaSprite('pauseText', 'pause/pause', 0, 0)
+    local pauseSprPath = 'pause/PAUSE'
+    if getPropertyFromClass("backend.ClientPrefs", "data.language") == "es-AR" then
+        pauseSprPath = "es-AR/pause/PAUSE"
+    end
+    makeLuaSprite('pauseText', pauseSprPath, 0, 0)
     scaleObject("pauseText", 6, 6)
     screenCenter('pauseText', 'X')
     setProperty('pauseText.y', 42)
@@ -183,7 +200,11 @@ local function initPauseMenu()
     local curY = 372
 
     for i,v in ipairs(options) do
+        
         local sprName = tostring(string.lower(v).."Text")
+        if getPropertyFromClass("backend.ClientPrefs", "data.language") == "es-AR" then
+            v = spanishOptions[i]
+        end
         makeLuaText(sprName, v, 200, 448.1, curY)
         scaleObject(sprName, 3, 3)
         setTextFont(sprName, "smb1.ttf")
@@ -495,7 +516,7 @@ local function createLoopGround()
 
     setObjectOrder("endpipe", getObjectOrder("boyfriendGroup") + 1)
 
-    setObjectOrder('popup', getObjectOrder(spritename) + 3)
+    setObjectOrder('popup', getObjectOrder(spritename) + 4)
 
     loop = loop + 1
     if not overworld then
@@ -560,7 +581,15 @@ local function luigiIsReal()
 end
 
 local function innocenceDoesntGetYouFar()
-    makeLuaSprite("popup","background/pcport/popup",inGameBoyfriendX, inGameBoyfriendY)
+    local lang = getPropertyFromClass("backend.ClientPrefs", "data.language")
+    local sprPath = "background/pcport/popup"
+
+    if lang == "es-AR" then
+        sprPath = "es-AR/background/pcport/popup"
+    end
+
+    makeLuaSprite("popup",sprPath,inGameBoyfriendX, inGameBoyfriendY)
+    
     scaleObject("popup", 6, 6)
     setObjectCamera('popup', 'game')
     -- screenCenter("popup","xy")
@@ -807,7 +836,7 @@ function onSectionHit()
         canJump = true
         removeLuaSprite("hiddenwall",true)
     elseif curSection == 80 then
-        removeLuaSprite("popup",true)
+        removeLuaSprite("popup")
         camerabffollow = true
     end
 end

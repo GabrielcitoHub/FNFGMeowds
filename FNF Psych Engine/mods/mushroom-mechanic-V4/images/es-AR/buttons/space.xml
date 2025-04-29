@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="space.png">
+	<!-- Created manually with my brain 69.6.9.120 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="spawn0000" x="0" y="0" width="19" height="12" frameX="0" frameY="0" frameWidth="19" frameHeight="12"/>
+	<SubTexture name="press0000" x="19" y="0" width="19" height="12" frameX="0" frameY="0" frameWidth="19" frameHeight="12"/>
+	<SubTexture name="pressloop0000" x="38" y="0" width="19" height="12" frameX="0" frameY="0" frameWidth="19" frameHeight="12"/>
+	<SubTexture name="pressloop0001" x="57" y="0" width="19" height="12" frameX="0" frameY="0" frameWidth="19" frameHeight="12"/>
+</TextureAtlas>

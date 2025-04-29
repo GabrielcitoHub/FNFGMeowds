@@ -81,6 +81,7 @@ function checkSticker()
 end
 
 function onCreate()
+    showHideMobileGUI(isOnMobile())
     checkSticker()
 end
 
@@ -188,9 +189,7 @@ end
 
 function mushroommiss()
     if not alreadymissed then
-        if haspowerupbeat == false then
-            alreadymissed = true
-        end
+        alreadymissed = true
     end
     if not flashing then
         powerup = powerup - 1
@@ -218,7 +217,6 @@ function removePowerup()
     end
     haspowerupbeat = false
     powerupspawned = false
-    alreadymissed = true
 end
 
 function getOpponentX()
@@ -472,7 +470,6 @@ function onUpdate()
     if getPropertyFromClass("flixel.FlxG","keys.justPressed."..getModSetting("cfgmxactionkey")["keyboard"]) or gamepadJustPressed(0, getModSetting("cfgmxactionkey")["gamepad"]) then
         fireFireball()
     end
-    showHideMobileGUI(isOnMobile())
     -- showHideMobileGUI(true)
     -- debugPrint(isTouchingSprite("gui"))
     if isTouchingSprite("gui") then
@@ -488,7 +485,11 @@ end
 
 function showHideMobileGUI(state)
     if state then
-        makeLuaSprite('gui','buttons/fire_button',50,400)
+        local fireButtonSpr = 'buttons/fire_button'
+        if getPropertyFromClass("backend.ClientPrefs", "data.language") == "es-AR" then
+            fireButtonSpr = 'es-AR/buttons/fire_button'
+        end
+        makeLuaSprite('gui',fireButtonSpr,50,400)
         scaleObject('gui',2,2)
         setObjectCamera("gui","hud")
         setProperty("gui.antialiasing", false)
@@ -561,7 +562,7 @@ function hitpowerup()
     if powerup >= 2 then
         -- nothing lul
     else
-    alreadymissed = true
+        alreadymissed = true
     end
 end
 
@@ -628,6 +629,7 @@ end
 
 function onTimerCompleted(tag,loops,loopsleft)
     if tag == "flashing" then
+        flashing = true
         setProperty('boyfriendGroup.visible', flashstate);
         flashstate = not flashstate
         if loopsleft == 0 then
