@@ -1,0 +1,27 @@
+{
+	"storyName": "",
+	"difficulties": "Hard",
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"weekBefore": "tutorial",
+	"startUnlocked": true,
+	"hideStoryMode": true,
+	"songs": [
+		[
+			"cross-console-clash",
+			"cross-console-clash-pixel",
+			[
+				80,
+				13,
+				120
+			]
+		]
+	],
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"hiddenUntilUnlocked": false,
+	"weekName": "Extras"
+}

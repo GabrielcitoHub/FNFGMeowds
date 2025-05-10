@@ -1,0 +1,63 @@
+{
+	"animations": [
+		{
+			"offsets": [0, 0],
+			"loop": false,
+			"fps": 8,
+			"anim": "singUP",
+			"indices": [],
+			"name": "up"
+		},
+		{
+			"offsets": [0, 0],
+			"loop": false,
+			"fps": 8,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "down"
+		},
+		{
+			"offsets": [0, 0],
+			"loop": true,
+			"fps": 8,
+			"anim": "run",
+			"indices": [],
+			"name": "run"
+		},
+		{
+			"offsets": [0, 0],
+			"loop": false,
+			"fps": 8,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "left"
+		},
+		{
+			"offsets": [0, 0],
+			"loop": false,
+			"fps": 8,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "bfmxtiny right"
+		},
+		{
+			"offsets": [0, 0],
+			"indices": [],
+			"fps": 12,
+			"anim": "idle",
+			"loop": true,
+			"name": "idle"
+		}
+	],
+	"vocals_file": "",
+	"no_antialiasing": true,
+	"image": "characters/bfmxtiny",
+	"position": [0, 0],
+	"healthicon": "face",
+	"flip_x": false,
+	"healthbar_colors": [161, 161, 161],
+	"camera_position": [0, 0],
+	"sing_duration": 4,
+	"scale": 1,
+	"_editor_isPlayer": true
+}

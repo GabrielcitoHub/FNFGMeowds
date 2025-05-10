@@ -1,0 +1,262 @@
+{
+	"camera_boyfriend": [
+		79,
+		99
+	],
+	"_editorMeta": {
+		"boyfriend": "mario-ccc",
+		"gf": "mario",
+		"dad": "sonic"
+	},
+	"preload": {
+		"images/stage_light": 2,
+		"images/stagecurtains": 2,
+		"images/stagefront": 3,
+		"images/stageback": 3
+	},
+	"girlfriend": [
+		400,
+		130
+	],
+	"stageUI": "",
+	"boyfriend": [
+		700,
+		3
+	],
+	"camera_girlfriend": [
+		698,
+		26
+	],
+	"defaultZoom": 9,
+	"objects": [
+		{
+			"x": 617,
+			"y": 37,
+			"scale": [
+				1,
+				1
+			],
+			"image": "backgrounds/sonic/water",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "water",
+			"firstAnimation": "loop",
+			"antialiasing": true,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"animations": [
+				{
+					"offsets": null,
+					"loop": true,
+					"fps": 16,
+					"anim": "loop",
+					"indices": [],
+					"name": "loop"
+				}
+			],
+			"type": "animatedSprite"
+		},
+		{
+			"x": 617,
+			"y": -13,
+			"scale": [
+				1,
+				1
+			],
+			"image": "backgrounds/sonic/bg",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "bg",
+			"antialiasing": true,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"type": "sprite"
+		},
+		{
+			"x": 740,
+			"y": -13,
+			"scale": [
+				1,
+				1
+			],
+			"image": "characters/luigi-ccc",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "luigi",
+			"firstAnimation": "idle",
+			"antialiasing": true,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"animations": [
+				{
+					"offsets": null,
+					"indices": [],
+					"fps": 16,
+					"anim": "left",
+					"loop": false,
+					"name": "right"
+				},
+				{
+					"offsets": null,
+					"indices": [],
+					"fps": 16,
+					"anim": "right",
+					"loop": false,
+					"name": "left"
+				},
+				{
+					"offsets": null,
+					"indices": [],
+					"fps": 16,
+					"anim": "up",
+					"loop": false,
+					"name": "up"
+				},
+				{
+					"offsets": null,
+					"indices": [],
+					"fps": 16,
+					"anim": "down",
+					"loop": false,
+					"name": "down"
+				},
+				{
+					"offsets": null,
+					"indices": [],
+					"fps": 1,
+					"anim": "jump",
+					"loop": true,
+					"name": "jump"
+				},
+				{
+					"offsets": null,
+					"indices": [],
+					"fps": 12,
+					"anim": "idle",
+					"loop": true,
+					"name": "idle"
+				}
+			],
+			"type": "animatedSprite"
+		},
+		{
+			"x": 603,
+			"y": -4,
+			"scale": [
+				1,
+				1
+			],
+			"image": "characters/tails",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "tails",
+			"firstAnimation": "idle",
+			"antialiasing": true,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"animations": [
+				{
+					"loop": true,
+					"offsets": null,
+					"anim": "idle",
+					"fps": 16,
+					"name": "idle",
+					"indices": []
+				},
+				{
+					"offsets": null,
+					"loop": false,
+					"fps": 16,
+					"anim": "left",
+					"indices": [],
+					"name": "left"
+				},
+				{
+					"offsets": null,
+					"loop": false,
+					"fps": 16,
+					"anim": "right",
+					"indices": [],
+					"name": "right"
+				},
+				{
+					"offsets": null,
+					"loop": false,
+					"fps": 16,
+					"anim": "up",
+					"indices": [],
+					"name": "up"
+				},
+				{
+					"offsets": null,
+					"loop": false,
+					"fps": 16,
+					"anim": "down",
+					"indices": [],
+					"name": "down"
+				},
+				{
+					"loop": true,
+					"offsets": null,
+					"anim": "fly",
+					"fps": 16,
+					"name": "fly",
+					"indices": []
+				},
+				{
+					"loop": false,
+					"offsets": null,
+					"anim": "skid",
+					"fps": 16,
+					"name": "skid",
+					"indices": []
+				}
+			],
+			"type": "animatedSprite"
+		},
+		{
+			"type": "gf"
+		},
+		{
+			"type": "boyfriend"
+		},
+		{
+			"type": "dad"
+		}
+	],
+	"camera_speed": 2,
+	"directory": "",
+	"opponent": [
+		645,
+		4
+	],
+	"camera_opponent": [
+		-138,
+		98
+	],
+	"hide_girlfriend": true
+}

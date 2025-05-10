@@ -1,0 +1,32 @@
+<TextureAtlas imagePath="arrows-pixels.png">
+    
+	  
+    <SubTexture name="arrowLEFT0000" x="0" y="0" width="170" height="170" frameWidth="170" frameHeight="170" />
+    <SubTexture name="left press0000" x="0" y="340" width="170" height="170" frameX="0" frameY="0" frameWidth="170" frameHeight="170" />
+    <SubTexture name="left confirm0000" x="0" y="510" width="170" height="170" frameX="0" frameY="0" frameWidth="170" frameHeight="170" />
+    <SubTexture name="left confirm0001" x="0" y="680" width="170" height="170" frameX="0" frameY="0" frameWidth="170" frameHeight="170" />
+    <SubTexture name="arrowDOWN0000" x="170" y="0" width="170" height="170" frameWidth="170" frameHeight="170" />
+    <SubTexture name="down press0000" x="170" y="340" width="170" height="170" frameX="0" frameY="0" frameWidth="170" frameHeight="170" />
+    <SubTexture name="down confirm0000" x="170" y="510" width="170" height="170" frameX="0" frameY="0" frameWidth="170" frameHeight="170" />
+    <SubTexture name="down confirm0001" x="170" y="680" width="170" height="170" frameX="0" frameY="0" frameWidth="170" frameHeight="170" />
+    <SubTexture name="arrowUP0000" x="340" y="0" width="170" height="170" frameWidth="170" frameHeight="170" />
+    <SubTexture name="up press0000" x="340" y="340" width="170" height="170" frameX="0" frameY="0" frameWidth="170" frameHeight="170" />
+    <SubTexture name="up confirm0000" x="340" y="510" width="170" height="170" frameX="0" frameY="0" frameWidth="170" frameHeight="170" />
+    <SubTexture name="up confirm0001" x="340" y="680" width="170" height="170" frameX="0" frameY="0" frameWidth="170" frameHeight="170" />
+    <SubTexture name="arrowRIGHT0000" x="510" y="0" width="170" height="170" frameWidth="170" frameHeight="170" />
+    <SubTexture name="right press0000" x="510" y="340" width="170" height="170" frameX="0" frameY="0" frameWidth="170" frameHeight="170" />
+    <SubTexture name="right confirm0000" x="510" y="510" width="170" height="170" frameX="0" frameY="0" frameWidth="170" frameHeight="170" />
+    <SubTexture name="right confirm0001" x="510" y="680" width="170" height="170" frameX="0" frameY="0" frameWidth="170" frameHeight="170" />
+    <SubTexture name="purple0000" x="0" y="170" width="170" height="170" frameWidth="170" frameHeight="170" />
+    <SubTexture name="purple hold piece0000" x="670" y="0" width="60" height="80" frameWidth="60" frameHeight="80" />
+    <SubTexture name="purple hold end0000" x="670" y="90" width="60" height="30" frameWidth="60" frameHeight="30" />
+    <SubTexture name="blue0000" x="170" y="170" width="170" height="170" frameWidth="170" frameHeight="170" />
+    <SubTexture name="blue hold piece0000" x="750" y="0" width="60" height="80" frameWidth="60" frameHeight="80" />
+    <SubTexture name="blue hold end0000" x="750" y="90" width="60" height="30" frameWidth="60" frameHeight="30" />
+    <SubTexture name="green0000" x="340" y="170" width="170" height="170" frameWidth="170" frameHeight="170" />
+    <SubTexture name="green hold piece0000" x="820" y="0" width="60" height="80" frameWidth="60" frameHeight="80" />
+    <SubTexture name="green hold end0000" x="820" y="90" width="60" height="30" frameWidth="60" frameHeight="30" />
+    <SubTexture name="red0000" x="510" y="170" width="170" height="170" frameWidth="170" frameHeight="170" />
+    <SubTexture name="red hold piece0000" x="890" y="0" width="60" height="80" frameWidth="60" frameHeight="80" />
+    <SubTexture name="red hold end0000" x="890" y="90" width="60" height="30" frameWidth="60" frameHeight="30" />
+</TextureAtlas>

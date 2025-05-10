@@ -1,0 +1,9 @@
+{
+	"name": "Mushroom Mechanic V5",
+	"description": "Adds the mushroom mechanic from SMB MX (and others)\npress space for some fun.\nbeat a song and replay it for a surprise!",
+	"restart":false,
+	"runsGlobally": true,
+	"color": [170, 0, 255],
+	"discordRPC": "863222024192262205",
+	"iconFramerate": 10
+}

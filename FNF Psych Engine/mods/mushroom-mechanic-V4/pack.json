@@ -1,9 +1,0 @@
-{
-	"name": "Mushroom Mechanic V4",
-	"description": "Adds the mushroom mechanic from SMB MX, press space for some fun. beat a song for and replay it fot s surprise!",
-	"restart":false,
-	"runsGlobally": true,
-	"color": [170, 0, 255],
-	"discordRPC": "863222024192262205",
-	"iconFramerate": 10
-}

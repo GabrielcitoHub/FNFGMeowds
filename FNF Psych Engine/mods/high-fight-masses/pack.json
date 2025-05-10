@@ -1,6 +1,6 @@
 {
-	"name": "Name",
-	"description": "Description",
+	"name": "High-Fight-Masses",
+	"description": "A silly mod",
 	"restart":false,
 	"runsGlobally": false,
 	"color": [170, 0, 255],

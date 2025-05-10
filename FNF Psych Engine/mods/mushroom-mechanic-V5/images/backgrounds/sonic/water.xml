@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="water.png">
+	<!-- Created manually with my brain 69.6.9.120 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="loop0000" x="0" y="0" width="80" height="14" frameX="0" frameY="0" frameWidth="80" frameHeight="14"/>
+	<SubTexture name="loop0001" x="80" y="0" width="80" height="14" frameX="0" frameY="0" frameWidth="80" frameHeight="14"/>
+	<SubTexture name="loop0002" x="0" y="15" width="80" height="14" frameX="0" frameY="0" frameWidth="80" frameHeight="14"/>
+	<SubTexture name="loop0003" x="80" y="15" width="80" height="14" frameX="0" frameY="0" frameWidth="80" frameHeight="14"/>
+</TextureAtlas>

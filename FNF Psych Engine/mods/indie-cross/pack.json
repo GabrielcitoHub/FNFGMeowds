@@ -1,6 +1,6 @@
 {
-	"name": "Name",
-	"description": "Description",
+	"name": "Indie Cross Rethinked",
+	"description": "Indie cross remake",
 	"restart":false,
 	"runsGlobally": false,
 	"color": [170, 0, 255],

@@ -1,0 +1,75 @@
+{
+	"camera_boyfriend": [
+		110,
+		86
+	],
+	"_editorMeta": {
+		"boyfriend": "bfmx",
+		"gf": "bf-wall",
+		"dad": "fakemario"
+	},
+	"preload": {
+		"images/stage_light": 2,
+		"images/stagecurtains": 2,
+		"images/stagefront": 3,
+		"images/stageback": 3
+	},
+	"girlfriend": [
+		70,
+		15
+	],
+	"stageUI": "",
+	"boyfriend": [
+		82,
+		55
+	],
+	"objects": [
+		{
+			"x": 0,
+			"y": 0,
+			"scale": [
+				1,
+				1
+			],
+			"image": "goal",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "bg",
+			"antialiasing": false,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"type": "sprite"
+		},
+		{
+			"type": "gf"
+		},
+		{
+			"type": "dad"
+		},
+		{
+			"type": "boyfriend"
+		}
+	],
+	"camera_girlfriend": [
+		-234,
+		100
+	],
+	"defaultZoom": 8,
+	"camera_speed": 2,
+	"directory": "",
+	"opponent": [
+		146,
+		36
+	],
+	"camera_opponent": [
+		-210,
+		91
+	],
+	"hide_girlfriend": true
+}

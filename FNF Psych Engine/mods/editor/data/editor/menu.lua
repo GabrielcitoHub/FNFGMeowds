@@ -2,6 +2,7 @@ function getCurrentDirectory()
     local folders = {}
 
     local handle = io.popen('dir mods /b /ad')
+    if handle == nil then return end
     local result = handle:read("*a")
 
     -- Iterate through each line (folder name) and add it to the list
@@ -14,7 +15,7 @@ function getCurrentDirectory()
     return folders
 end
 
-local modFolders = getCurrentDirectory()
+local modFolders = getCurrentDirectory() or {}
 
 local function createSprites()
     makeLuaSprite("bg")
