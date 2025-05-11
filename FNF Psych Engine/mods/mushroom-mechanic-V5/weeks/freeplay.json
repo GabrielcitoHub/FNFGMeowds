@@ -5,6 +5,11 @@
 	"weekBackground": "",
 	"weekBefore": "tutorial",
 	"startUnlocked": true,
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
 	"hideStoryMode": true,
 	"songs": [
 		[
@@ -15,13 +20,17 @@
 				13,
 				120
 			]
+		],
+		[
+			"confronting-yourself",
+			"face",
+			[
+				26,
+				113,
+				253
+			]
 		]
 	],
-	"weekCharacters": [
-		"",
-		"",
-		""
-	],
-	"hiddenUntilUnlocked": false,
-	"weekName": "Extras"
+	"weekName": "Extras",
+	"hiddenUntilUnlocked": false
 }

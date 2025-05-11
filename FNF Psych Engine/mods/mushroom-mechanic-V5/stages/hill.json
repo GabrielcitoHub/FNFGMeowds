@@ -1,0 +1,88 @@
+{
+	"camera_boyfriend": [
+		70,
+		80
+	],
+	"_editorMeta": {
+		"boyfriend": "playable-sonic",
+		"gf": "sonic",
+		"dad": "sonic-exe"
+	},
+	"stageUI": "normal",
+	"boyfriend": [
+		215,
+		100
+	],
+	"girlfriend": [
+		400,
+		130
+	],
+	"defaultZoom": 5,
+	"objects": [
+		{
+			"x": 72,
+			"y": 25,
+			"scale": [
+				0.6,
+				0.6
+			],
+			"image": "backgrounds/hill/bg",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "bg",
+			"firstAnimation": "normal",
+			"antialiasing": true,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"animations": [
+				{
+					"offsets": null,
+					"indices": [],
+					"fps": 1,
+					"anim": "exe",
+					"loop": true,
+					"name": "exe"
+				},
+				{
+					"offsets": null,
+					"indices": [],
+					"fps": 1,
+					"anim": "normal",
+					"loop": true,
+					"name": "normal"
+				}
+			],
+			"type": "animatedSprite"
+		},
+		{
+			"type": "gf"
+		},
+		{
+			"type": "dad"
+		},
+		{
+			"type": "boyfriend"
+		}
+	],
+	"camera_girlfriend": [
+		220,
+		105
+	],
+	"opponent": [
+		82,
+		100
+	],
+	"directory": "",
+	"camera_speed": 2,
+	"hide_girlfriend": true,
+	"camera_opponent": [
+		-60,
+		80
+	]
+}

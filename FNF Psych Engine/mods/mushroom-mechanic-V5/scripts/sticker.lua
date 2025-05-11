@@ -24,8 +24,8 @@ local function getData()
     fclist = getTextFromFile("data/special/fcbeatedsongs.txt")
     
     -- Split the file contents into tables
-    bltrimmed = split(beatenlist, "\n")
-    fcbltrimmed = split(fclist, "\n")  -- Use fclist here instead of beatenlist
+    bltrimmed = split(beatenlist, ",")
+    fcbltrimmed = split(fclist, ",")  -- Use fclist here instead of beatenlist
     
     -- Reset flags
     found = false
@@ -66,10 +66,8 @@ local function checkSticker()
     getData() -- Load the data
     
     -- Determine whether to spawn the sticker
-    if found then
-        spawnSticker(false)
-    elseif fcfound then
-        spawnSticker(true)
+    if found or fcfound then
+        spawnSticker(fcfound)
     end
 end
 
@@ -78,17 +76,16 @@ local function endSongSave()
     -- debugPrint("saving")
     runTimer("save",0.1)
     -- If the song is not full combo'd
-    if not fcfound then
-        if not found then
-            if misses >= 1 then
-                beatenlist = tostring(beatenlist.."\n"..tostring(songName..difficultyName))
-            else
-                fclist = tostring(fclist.."\n"..tostring(songName..difficultyName))
-            end
+    if fcfound == false and found == false then
+        if misses > 0 then
+            beatenlist = tostring(beatenlist..","..tostring(songName..difficultyName))
+        else
+            fclist = tostring(fclist..","..tostring(songName..difficultyName))
         end
-    elseif found then
-        if not fcfound and misses == 0 then
-            fclist = tostring(fclist.."\n"..tostring(songName..difficultyName))
+    end
+    if found == true and fcfound == false then
+        if misses == 0 then
+            fclist = tostring(fclist..","..tostring(songName..difficultyName))
         end
     end
 end
@@ -118,7 +115,7 @@ function onTimerCompleted(tag)
         -- debugPrint('data/special/beatedsongs.txt',beatenlist)
         -- debugPrint('data/special/fcbeatedsongs.txt',fclist)
         saveFile(modFolder.."/data/special/beatedsongs.txt",beatenlist)
-        saveFile(modFolder.."mushroom-mechanic-V5/data/special/beatedsongs.txt",fclist)
+        saveFile(modFolder.."/data/special/fcbeatedsongs.txt",fclist)
     end
 end
 

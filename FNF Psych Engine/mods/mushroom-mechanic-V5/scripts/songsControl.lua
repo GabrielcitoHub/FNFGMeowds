@@ -37,7 +37,7 @@ function onCreatePost()
         setPropertyFromGroup('playerStrums', 1, 'x', 225)    -- Down note
         setPropertyFromGroup('playerStrums', 2, 'x', 350)   -- Up note
         setPropertyFromGroup('playerStrums', 3, 'x', 475)   -- Right note
-    elseif songName == "Cross-Console-Clash" then
+    else
         -- Opponent's strum positions (0-3 for left to right)
         setPropertyFromGroup('opponentStrums', 0, 'x', 100)  -- Left note
         setPropertyFromGroup('opponentStrums', 1, 'x', 225)  -- Down note
