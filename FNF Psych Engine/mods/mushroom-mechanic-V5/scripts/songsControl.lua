@@ -1,5 +1,5 @@
 local hadghosttapping = false
-local stopScript
+local stopScript = false
 function table.contains (table, element)
     for _,value in pairs(table) do
         if value == element then
@@ -52,9 +52,8 @@ function onCreatePost()
     end
 end
 
-if stopScript then return end
-
 function onCountdownTick(swagCounter)
+    if stopScript then return end
     if ghostTapping then
         hadghosttapping = true
         setPropertyFromClass('backend.ClientPrefs', 'data.ghostTapping', false)
@@ -63,10 +62,12 @@ end
 
 -- Custom script to change Boyfriend's and Opponent's strum notes in FNF Psych Engine
 function onSongStart()
+    if stopScript then return end
     setPropertyFromClass('ClientPrefs', 'ghostTapping', false);
 end
 
 function onDestroy()
+    if stopScript then return end
     setPropertyFromClass('lime.app.Application', 'current.window.title', "Friday Night Funkin: Psych Engine")
     if hadghosttapping then
         setPropertyFromClass('backend.ClientPrefs', 'data.ghostTapping', true)
@@ -74,13 +75,16 @@ function onDestroy()
 end
 
 function onUpdatePos()
+    if stopScript then return end
     setProperty("health",1)
 end
 
 function onUpdate()
+    if stopScript then return end
     setProperty("vocals.volume",1)
 end
 
 function onGameOver()
+    if stopScript then return end
     return Function_Stop
 end

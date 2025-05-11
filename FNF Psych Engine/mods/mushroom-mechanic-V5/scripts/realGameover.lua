@@ -1,4 +1,21 @@
 local deathSprs = {"bf", "mario"}
+local stopScript = false
+function table.contains (table, element)
+    for _,value in pairs(table) do
+        if value == element then
+            return true
+        end
+    end
+    return false
+end
+
+function onCreatePost()
+    if not table.contains(songs, songName) then
+        stopScript = true
+        return 
+    end
+end
+
 local function getListIndex(list,value)
     for i,v in ipairs(list) do
         if v == value then
@@ -36,6 +53,7 @@ local function killbf()
 end
 
 function onUpdate()
+    if stopScript then return end
     -- Gameover (the real one)
     if mushroomkill then
         killbf()
