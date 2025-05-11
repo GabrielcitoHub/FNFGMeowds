@@ -75,6 +75,23 @@ function onCreatePost()
     end
 end
 
+local function noteOutOfSight(note)
+    setProperty(note.sprite .. '.visible', false)
+    if note.shown then
+        note.shown = false
+        removeLuaSprite(note.sprite)
+        danceDir = danceDirections[note.lane + 1]
+        local idleWait = 0.3
+        if note.lane < 4 then
+            playAnim(rightPlayer,danceDir)
+            runTimer("resetidlel", idleWait)
+        else
+            playAnim(leftPlayer,danceDir)
+            runTimer("resetidlet", idleWait)
+        end
+    end
+end
+
 function onUpdatePost(elapsed)
     local songPos = getSongPosition()  -- en milisegundos
     local scrollSpeed = chartData.speed   -- podés cambiar esto
@@ -90,24 +107,20 @@ function onUpdatePost(elapsed)
 
         -- podés agregar lógica para ocultar notas que ya pasaron
         -- if y > 800 or y < -200 then
-        if y > 800 or y < 50 then
-            setProperty(note.sprite .. '.visible', false)
-            if note.shown then
-                note.shown = false
-                removeLuaSprite(note.sprite)
-                danceDir = danceDirections[note.lane + 1]
-                local idleWait = 0.3
-                if note.lane < 4 then
-                    playAnim(rightPlayer,danceDir)
-                    runTimer("resetidlel", idleWait)
-                else
-                    playAnim(leftPlayer,danceDir)
-                    runTimer("resetidlet", idleWait)
-                end
+        if not downscroll then
+            if y > 800 or y < 50 then
+                noteOutOfSight(note)
+            else
+                setProperty(note.sprite .. '.visible', true)
+                note.shown = true
             end
         else
-            setProperty(note.sprite .. '.visible', true)
-            note.shown = true
+            if y > 575 or y < -100 then
+                noteOutOfSight(note)
+            else
+                setProperty(note.sprite .. '.visible', true)
+                note.shown = true
+            end
         end
     end
 end
