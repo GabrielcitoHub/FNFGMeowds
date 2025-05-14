@@ -1386,12 +1386,6 @@
 			]
 		],
 		[
-			55833.3333333333,
-			[
-				["Set Property", "cpuControlled", "true"]
-			]
-		],
-		[
 			55925.9259259259,
 			[
 				["Play Animation", "wave", "Dad"]

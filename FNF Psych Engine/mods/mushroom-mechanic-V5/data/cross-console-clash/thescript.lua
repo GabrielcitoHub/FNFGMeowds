@@ -5,6 +5,7 @@ local realBotPlay = botPlay
 function onCreate()
     setProperty("tails.visible", false)
     setProperty("luigi.visible", false)
+    luigiStartX = getProperty("luigi.x")+luigiBackAmount
 end
 
 function onSectionHit()
@@ -17,11 +18,9 @@ function onSectionHit()
         doTweenX("tailsWalk","tails",getProperty("tails.x")+backAmount,1.1,'quadOut')
         doTweenY("tailsGravity","tails",getProperty("tails.y")+flyAmount,0.95)
     elseif curSection == 40 then
-        setProperty("luigi.x",getProperty("luigi.x")+luigiBackAmount)
-    elseif curSection == 41 then
-        if not realBotplay then
-            setProperty("cpuControlled",false)
-        end
+        setProperty("luigi.alpha",0)
+    elseif curSection >= 45 then
+        setProperty("luigi.alpha",1)
     end
 end
 
@@ -32,6 +31,8 @@ function onBeatHit()
         playAnim("tails","idle")
     elseif curBeat == 162 then
         playAnim("luigi","jump")
+        setProperty("luigi.alpha",1)
+        setProperty("luigi.x",luigiStartX)
         setProperty("luigi.y",getProperty("luigi.y")-luigiAirAmount)
         doTweenX("luigiWalk","luigi",getProperty("luigi.x")-luigiBackAmount,0.3,'quadOut')
         doTweenY("luigiGravity","luigi",getProperty("luigi.y")+luigiAirAmount,0.3)

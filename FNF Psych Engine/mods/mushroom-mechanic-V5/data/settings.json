@@ -36,5 +36,83 @@
         "description": "Key used to fire fireballs.",
 		"keyboard": "SPACE",
 		"gamepad": "A"
+	},
+	{
+		"save": "player3",
+		"name": "Enable Player 3", //Name shown on the mod settings menu
+		"type": "bool",
+		"description": "Enables playing in the left side for some songs.", //Description shown on the mod settings menu
+		"value": false //This is the default value
+	},
+	{
+		"save": "player3-leftkey",
+		"name": "Player 3 Left Key",
+		"type": "keybind",
+        "description": "Player 3 Left Key to use if enabled.",
+		"keyboard": "A",
+		"gamepad": "A"
+	},
+	{
+		"save": "player3-downkey",
+		"name": "Player 3 Down Key",
+		"type": "keybind",
+        "description": "Player 3 Down Key to use if enabled.",
+		"keyboard": "S",
+		"gamepad": "A"
+	},
+	{
+		"save": "player3-upkey",
+		"name": "Player 3 Up Key",
+		"type": "keybind",
+        "description": "Player 3 Up Key to use if enabled.",
+		"keyboard": "W",
+		"gamepad": "A"
+	},
+	{
+		"save": "player3-rightkey",
+		"name": "Player 3 Right Key",
+		"type": "keybind",
+        "description": "Player 3 Right Key to use if enabled.",
+		"keyboard": "D",
+		"gamepad": "A"
+	},
+	{
+		"save": "player4",
+		"name": "Enable Player 4", //Name shown on the mod settings menu
+		"type": "bool",
+		"description": "Enables playing in the right side for some songs.", //Description shown on the mod settings menu
+		"value": false //This is the default value
+	},
+	{
+		"save": "player4-leftkey",
+		"name": "Player 4 Left Key",
+		"type": "keybind",
+        "description": "Player 4 Left Key to use if enabled.",
+		"keyboard": "F",
+		"gamepad": "A"
+	},
+	{
+		"save": "player4-downkey",
+		"name": "Player 4 Down Key",
+		"type": "keybind",
+        "description": "Player 4 Down Key to use if enabled.",
+		"keyboard": "G",
+		"gamepad": "A"
+	},
+	{
+		"save": "player4-upkey",
+		"name": "Player 4 Up Key",
+		"type": "keybind",
+        "description": "Player 4 Up Key to use if enabled.",
+		"keyboard": "T",
+		"gamepad": "A"
+	},
+	{
+		"save": "player4-rightkey",
+		"name": "Player 4 Right Key",
+		"type": "keybind",
+        "description": "Player 4 Right Key to use if enabled.",
+		"keyboard": "H",
+		"gamepad": "A"
 	}
 ]

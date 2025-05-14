@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="bg.png">
+	<!-- Created manually with my brain 69.6.9.120 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="flow0000" x="0" y="0" width="1024" height="144" frameX="0" frameY="0" frameWidth="1024" frameHeight="144"/>
+	<SubTexture name="flow0001" x="0" y="144" width="1024" height="144" frameX="0" frameY="0" frameWidth="1024" frameHeight="144"/>
+    <SubTexture name="flow0002" x="0" y="288" width="1024" height="144" frameX="0" frameY="0" frameWidth="1024" frameHeight="144"/>
+    <SubTexture name="flow0003" x="0" y="432" width="1024" height="144" frameX="0" frameY="0" frameWidth="1024" frameHeight="144"/>
+</TextureAtlas>

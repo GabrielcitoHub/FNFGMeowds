@@ -1,4 +1,4 @@
-<TextureAtlas imagePath="arrow-sonic.png">
+<TextureAtlas imagePath="arrow-tails.png">
     
 	  
     <SubTexture name="arrowLEFT0000" x="0" y="0" width="190" height="190" frameWidth="190" frameHeight="190" />

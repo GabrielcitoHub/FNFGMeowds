@@ -3,31 +3,26 @@
 		79,
 		99
 	],
+	"preload": {
+		"images/stageback": 3,
+		"images/stagefront": 3,
+		"images/stagecurtains": 2,
+		"images/stage_light": 2
+	},
 	"_editorMeta": {
 		"boyfriend": "mario-ccc",
-		"gf": "mario",
-		"dad": "sonic"
+		"dad": "sonic",
+		"gf": "mario"
 	},
-	"preload": {
-		"images/stage_light": 2,
-		"images/stagecurtains": 2,
-		"images/stagefront": 3,
-		"images/stageback": 3
-	},
-	"girlfriend": [
-		400,
-		130
-	],
-	"stageUI": "",
 	"boyfriend": [
 		700,
 		3
 	],
-	"camera_girlfriend": [
-		698,
-		26
+	"stageUI": "",
+	"girlfriend": [
+		400,
+		130
 	],
-	"defaultZoom": 9,
 	"objects": [
 		{
 			"x": 617,
@@ -43,7 +38,7 @@
 			"angle": 0,
 			"name": "water",
 			"firstAnimation": "loop",
-			"antialiasing": true,
+			"antialiasing": false,
 			"flipY": false,
 			"scroll": [
 				1,
@@ -52,12 +47,12 @@
 			"alpha": 1,
 			"animations": [
 				{
-					"offsets": null,
 					"loop": true,
-					"fps": 16,
+					"offsets": null,
 					"anim": "loop",
-					"indices": [],
-					"name": "loop"
+					"fps": 16,
+					"name": "loop",
+					"indices": []
 				}
 			],
 			"type": "animatedSprite"
@@ -75,7 +70,7 @@
 			"color": "FFFFFF",
 			"angle": 0,
 			"name": "bg",
-			"antialiasing": true,
+			"antialiasing": false,
 			"flipY": false,
 			"scroll": [
 				1,
@@ -98,7 +93,7 @@
 			"angle": 0,
 			"name": "luigi",
 			"firstAnimation": "idle",
-			"antialiasing": true,
+			"antialiasing": false,
 			"flipY": false,
 			"scroll": [
 				1,
@@ -107,52 +102,52 @@
 			"alpha": 1,
 			"animations": [
 				{
+					"loop": false,
 					"offsets": null,
-					"indices": [],
-					"fps": 16,
 					"anim": "left",
-					"loop": false,
-					"name": "right"
+					"fps": 16,
+					"name": "right",
+					"indices": []
 				},
 				{
+					"loop": false,
 					"offsets": null,
-					"indices": [],
-					"fps": 16,
 					"anim": "right",
-					"loop": false,
-					"name": "left"
+					"fps": 16,
+					"name": "left",
+					"indices": []
 				},
 				{
+					"loop": false,
 					"offsets": null,
-					"indices": [],
-					"fps": 16,
 					"anim": "up",
-					"loop": false,
-					"name": "up"
-				},
-				{
-					"offsets": null,
-					"indices": [],
 					"fps": 16,
-					"anim": "down",
+					"name": "up",
+					"indices": []
+				},
+				{
 					"loop": false,
-					"name": "down"
+					"offsets": null,
+					"anim": "down",
+					"fps": 16,
+					"name": "down",
+					"indices": []
 				},
 				{
+					"loop": true,
 					"offsets": null,
-					"indices": [],
-					"fps": 1,
 					"anim": "jump",
-					"loop": true,
-					"name": "jump"
+					"fps": 1,
+					"name": "jump",
+					"indices": []
 				},
 				{
-					"offsets": null,
-					"indices": [],
-					"fps": 12,
-					"anim": "idle",
 					"loop": true,
-					"name": "idle"
+					"offsets": null,
+					"anim": "idle",
+					"fps": 12,
+					"name": "idle",
+					"indices": []
 				}
 			],
 			"type": "animatedSprite"
@@ -171,7 +166,7 @@
 			"angle": 0,
 			"name": "tails",
 			"firstAnimation": "idle",
-			"antialiasing": true,
+			"antialiasing": false,
 			"flipY": false,
 			"scroll": [
 				1,
@@ -180,60 +175,60 @@
 			"alpha": 1,
 			"animations": [
 				{
-					"loop": true,
 					"offsets": null,
+					"loop": true,
+					"fps": 16,
 					"anim": "idle",
-					"fps": 16,
-					"name": "idle",
-					"indices": []
+					"indices": [],
+					"name": "idle"
 				},
 				{
-					"offsets": null,
 					"loop": false,
-					"fps": 16,
+					"offsets": null,
 					"anim": "left",
-					"indices": [],
-					"name": "left"
+					"fps": 16,
+					"name": "left",
+					"indices": []
 				},
 				{
-					"offsets": null,
 					"loop": false,
-					"fps": 16,
+					"offsets": null,
 					"anim": "right",
-					"indices": [],
-					"name": "right"
+					"fps": 16,
+					"name": "right",
+					"indices": []
 				},
 				{
-					"offsets": null,
 					"loop": false,
-					"fps": 16,
+					"offsets": null,
 					"anim": "up",
-					"indices": [],
-					"name": "up"
+					"fps": 16,
+					"name": "up",
+					"indices": []
 				},
 				{
-					"offsets": null,
 					"loop": false,
-					"fps": 16,
+					"offsets": null,
 					"anim": "down",
-					"indices": [],
-					"name": "down"
+					"fps": 16,
+					"name": "down",
+					"indices": []
 				},
 				{
+					"offsets": null,
 					"loop": true,
-					"offsets": null,
-					"anim": "fly",
 					"fps": 16,
-					"name": "fly",
-					"indices": []
+					"anim": "fly",
+					"indices": [],
+					"name": "fly"
 				},
 				{
-					"loop": false,
 					"offsets": null,
-					"anim": "skid",
+					"loop": false,
 					"fps": 16,
-					"name": "skid",
-					"indices": []
+					"anim": "skid",
+					"indices": [],
+					"name": "skid"
 				}
 			],
 			"type": "animatedSprite"
@@ -248,15 +243,20 @@
 			"type": "dad"
 		}
 	],
-	"camera_speed": 2,
-	"directory": "",
+	"camera_girlfriend": [
+		698,
+		26
+	],
+	"defaultZoom": 9,
 	"opponent": [
 		645,
 		4
 	],
+	"directory": "",
+	"camera_speed": 2,
+	"hide_girlfriend": true,
 	"camera_opponent": [
 		-138,
 		98
-	],
-	"hide_girlfriend": true
+	]
 }

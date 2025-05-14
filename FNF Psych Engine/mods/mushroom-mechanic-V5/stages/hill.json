@@ -5,10 +5,9 @@
 	],
 	"_editorMeta": {
 		"boyfriend": "playable-sonic",
-		"gf": "sonic",
-		"dad": "sonic-exe"
+		"dad": "sonic-exe",
+		"gf": "sonic"
 	},
-	"stageUI": "normal",
 	"boyfriend": [
 		215,
 		100
@@ -17,8 +16,146 @@
 		400,
 		130
 	],
+	"stageUI": "normal",
 	"defaultZoom": 5,
 	"objects": [
+		{
+			"x": -295,
+			"y": 73,
+			"scale": [
+				1,
+				1
+			],
+			"image": "backgrounds/hill/water",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "water",
+			"firstAnimation": "flow",
+			"antialiasing": true,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"animations": [
+				{
+					"loop": true,
+					"offsets": null,
+					"anim": "flow",
+					"fps": 12,
+					"name": "flow",
+					"indices": []
+				}
+			],
+			"type": "animatedSprite"
+		},
+		{
+			"x": -280,
+			"y": -39,
+			"scale": [
+				1,
+				1
+			],
+			"image": "backgrounds/hill/layer0",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "sky",
+			"antialiasing": false,
+			"flipY": false,
+			"scroll": [
+				0.1,
+				1
+			],
+			"alpha": 1,
+			"type": "sprite"
+		},
+		{
+			"x": 224,
+			"y": 99,
+			"scale": [
+				0.7,
+				0.7
+			],
+			"image": "backgrounds/hill/flower",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "green-flower",
+			"firstAnimation": "green",
+			"antialiasing": false,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"animations": [
+				{
+					"offsets": null,
+					"loop": true,
+					"fps": 8,
+					"anim": "green",
+					"indices": [],
+					"name": "green"
+				},
+				{
+					"loop": true,
+					"offsets": null,
+					"anim": "exe",
+					"fps": 2,
+					"name": "exe",
+					"indices": []
+				}
+			],
+			"type": "animatedSprite"
+		},
+		{
+			"x": 282,
+			"y": 51,
+			"scale": [
+				0.7,
+				0.7
+			],
+			"image": "backgrounds/hill/flower",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "red-flower",
+			"firstAnimation": "red",
+			"antialiasing": false,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"animations": [
+				{
+					"offsets": null,
+					"loop": true,
+					"fps": 8,
+					"anim": "red",
+					"indices": [],
+					"name": "red"
+				},
+				{
+					"loop": true,
+					"offsets": null,
+					"anim": "exe",
+					"fps": 2,
+					"name": "exe",
+					"indices": []
+				}
+			],
+			"type": "animatedSprite"
+		},
 		{
 			"x": 72,
 			"y": 25,
@@ -33,7 +170,7 @@
 			"angle": 0,
 			"name": "bg",
 			"firstAnimation": "normal",
-			"antialiasing": true,
+			"antialiasing": false,
 			"flipY": false,
 			"scroll": [
 				1,
@@ -42,20 +179,20 @@
 			"alpha": 1,
 			"animations": [
 				{
-					"offsets": null,
-					"indices": [],
-					"fps": 1,
-					"anim": "exe",
 					"loop": true,
-					"name": "exe"
+					"offsets": null,
+					"anim": "exe",
+					"fps": 1,
+					"name": "exe",
+					"indices": []
 				},
 				{
-					"offsets": null,
-					"indices": [],
-					"fps": 1,
-					"anim": "normal",
 					"loop": true,
-					"name": "normal"
+					"offsets": null,
+					"anim": "normal",
+					"fps": 1,
+					"name": "normal",
+					"indices": []
 				}
 			],
 			"type": "animatedSprite"
@@ -74,15 +211,15 @@
 		220,
 		105
 	],
+	"camera_speed": 2,
+	"directory": "",
 	"opponent": [
 		82,
 		100
 	],
-	"directory": "",
-	"camera_speed": 2,
-	"hide_girlfriend": true,
 	"camera_opponent": [
 		-60,
 		80
-	]
+	],
+	"hide_girlfriend": true
 }
