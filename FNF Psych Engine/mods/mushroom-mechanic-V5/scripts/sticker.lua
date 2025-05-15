@@ -54,11 +54,12 @@ local function spawnSticker(fc)
     else
         makeLuaSprite('sticker',tostring('special/crown'),150,592);
     end
+    setProperty("sticker.y",getProperty("powerdisplay.y") or getProperty("sticker.y"))
     scaleObject('sticker',scaleSize,scaleSize)
     setProperty('sticker.antialiasing', false)
     setObjectCamera("sticker","hud")
     addLuaSprite('sticker', true)
-    -- startTween('stickerSize', 'sticker.scale', {x = tonumber(scaleSize..".5"), y = tonumber(scaleSize..".5")}, 5, {ease = 'sineOut'})
+    startTween('stickerSize', 'sticker.scale', {x = tonumber(scaleSize..".5"), y = tonumber(scaleSize..".5")}, 5, {ease = 'sineOut'})
 end
 
 -- Function to run when the song starts
@@ -116,11 +117,7 @@ function onTimerCompleted(tag)
         -- debugPrint('data/special/fcbeatedsongs.txt',fclist)
         saveFile(modFolder.."/data/special/beatedsongs.txt",beatenlist)
         saveFile(modFolder.."/data/special/fcbeatedsongs.txt",fclist)
-    end
-end
-
-function onTweenCompleted(tag)
-    if tag == "stickerSize" then
+    elseif tag == "stickerSize" then
         startTween('stickerDownSize', 'sticker.scale', {x = defaultScaleSize, y = defaultScaleSize}, 2, {ease = 'linear'})
     end
 end

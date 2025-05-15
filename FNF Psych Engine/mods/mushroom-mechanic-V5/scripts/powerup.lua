@@ -22,7 +22,11 @@ function onCreatePost()
 end
 
 function makedisplay()
-    makeLuaSprite('powerdisplay',tostring('powerstates/'..powerup),50,600)
+    local y = 600
+    if downscroll then
+        y = 30
+    end
+    makeLuaSprite('powerdisplay',tostring('powerstates/'..powerup),50,y)
     scaleObject('powerdisplay',scaleSize,scaleSize)
     setProperty('powerdisplay.antialiasing', false)
     setObjectCamera("powerdisplay","hud")
@@ -445,7 +449,7 @@ end
 
 function onTimerCompleted(tag,loops,loopsleft)
     if tag == "flashing" or "flashingpowerdown" or "flashingpowerup" then
-        setProperty('boyfriendGroup.visible', flashstate);
+        setProperty('boyfriendGroup.visible', flashstate)
         flashstate = not flashstate
         if tag == "flashingpowerdown" or "flashingpowerup" then
             flashing = true
