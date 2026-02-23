@@ -1,9 +1,0 @@
-mushroom-mechanic-V5|1
-multiplayer-mod|0
-vs-chara|0
-test|0
-boss-rusher|0
-editor|0
-high-fight-masses|0
-indie-cross|0
-My-Mod|1
