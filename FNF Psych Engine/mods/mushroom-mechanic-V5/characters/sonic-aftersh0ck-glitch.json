@@ -1,0 +1,55 @@
+{
+	"animations": [
+		{
+			"offsets": [-220, -700],
+			"loop": true,
+			"fps": 8,
+			"anim": "idle",
+			"indices": [],
+			"name": "idle"
+		},
+		{
+			"offsets": [-210, -700],
+			"loop": true,
+			"fps": 8,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "left"
+		},
+		{
+			"offsets": [-220, -702],
+			"loop": true,
+			"fps": 8,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "down"
+		},
+		{
+			"offsets": [-230, -700],
+			"loop": true,
+			"fps": 8,
+			"anim": "singUP",
+			"indices": [],
+			"name": "up"
+		},
+		{
+			"offsets": [-230, -700],
+			"loop": true,
+			"fps": 8,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "right"
+		}
+	],
+	"vocals_file": "",
+	"no_antialiasing": true,
+	"image": "characters/sonic-aftersh0ck-glitch",
+	"position": [0, 0],
+	"healthicon": "face",
+	"flip_x": true,
+	"healthbar_colors": [100, 101, 255],
+	"camera_position": [-310, 670],
+	"sing_duration": 4,
+	"scale": 2,
+	"_editor_isPlayer": true
+}

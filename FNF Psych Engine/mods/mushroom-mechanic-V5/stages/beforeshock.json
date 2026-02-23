@@ -1,0 +1,130 @@
+{
+	"camera_boyfriend": [
+		0,
+		100
+	],
+	"_editorMeta": {
+		"boyfriend": "sonic-aftersh0ck",
+		"gf": "gf",
+		"dad": "dad"
+	},
+	"preload": {
+		"images/stage_light": 2,
+		"images/stagecurtains": 2,
+		"images/stagefront": 3,
+		"images/stageback": 3
+	},
+	"girlfriend": [
+		400,
+		130
+	],
+	"stageUI": "",
+	"boyfriend": [
+		165,
+		-350
+	],
+	"objects": [
+		{
+			"x": 320,
+			"y": 143,
+			"scale": [
+				5,
+				5
+			],
+			"image": "backgrounds/aftershock/sky",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "sky",
+			"antialiasing": true,
+			"flipY": false,
+			"scroll": [
+				0,
+				0
+			],
+			"alpha": 1,
+			"type": "sprite"
+		},
+		{
+			"x": 86,
+			"y": 185,
+			"scale": [
+				4,
+				3
+			],
+			"image": "backgrounds/aftershock/clouds",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "clouds",
+			"antialiasing": true,
+			"flipY": false,
+			"scroll": [
+				0.7,
+				1
+			],
+			"alpha": 0.8,
+			"type": "sprite"
+		},
+		{
+			"x": 413,
+			"y": 404,
+			"scale": [
+				4,
+				4
+			],
+			"image": "backgrounds/aftershock/tornado",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "tornado",
+			"firstAnimation": "idle",
+			"antialiasing": false,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"animations": [
+				{
+					"offsets": null,
+					"loop": true,
+					"fps": 64,
+					"anim": "idle",
+					"indices": [],
+					"name": "idle"
+				}
+			],
+			"type": "animatedSprite"
+		},
+		{
+			"type": "gf"
+		},
+		{
+			"type": "dad"
+		},
+		{
+			"type": "boyfriend"
+		}
+	],
+	"camera_girlfriend": [
+		0,
+		0
+	],
+	"defaultZoom": 2,
+	"camera_speed": 1,
+	"directory": "",
+	"opponent": [
+		560,
+		180
+	],
+	"camera_opponent": [
+		0,
+		0
+	],
+	"hide_girlfriend": true
+}

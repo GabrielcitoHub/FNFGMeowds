@@ -1,0 +1,113 @@
+{
+	"camera_boyfriend": [
+		0,
+		0
+	],
+	"_editorMeta": {
+		"boyfriend": "expie",
+		"dad": "dad",
+		"gf": "gf"
+	},
+	"stageUI": "normal",
+	"boyfriend": [
+		770,
+		95
+	],
+	"girlfriend": [
+		580,
+		230
+	],
+	"defaultZoom": 0.9,
+	"objects": [
+		{
+			"x": -51,
+			"y": -333,
+			"scale": [
+				7,
+				7
+			],
+			"image": "backgrounds/drop-capsule/bgbottom",
+			"flipX": false,
+			"filters": 2,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "bottom",
+			"antialiasing": false,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 0.7,
+			"type": "sprite"
+		},
+		{
+			"x": 656,
+			"y": 122,
+			"scale": [
+				7,
+				7
+			],
+			"image": "backgrounds/drop-capsule",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "drop-capsule",
+			"antialiasing": false,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"type": "sprite"
+		},
+		{
+			"type": "gf"
+		},
+		{
+			"type": "dad"
+		},
+		{
+			"type": "boyfriend"
+		},
+		{
+			"x": 174,
+			"y": -103,
+			"scale": [
+				7,
+				7
+			],
+			"image": "backgrounds/drop-capsule/bgtop",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "bg",
+			"antialiasing": false,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"type": "sprite"
+		}
+	],
+	"camera_girlfriend": [
+		850,
+		500
+	],
+	"camera_speed": 1,
+	"directory": "",
+	"opponent": [
+		-1020,
+		100
+	],
+	"camera_opponent": [
+		0,
+		0
+	],
+	"hide_girlfriend": true
+}

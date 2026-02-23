@@ -1,0 +1,55 @@
+{
+	"animations": [
+		{
+			"offsets": [-240, -500],
+			"loop": false,
+			"fps": 16,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "touchleft"
+		},
+		{
+			"offsets": [-240, -500],
+			"loop": false,
+			"fps": 16,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "touchdown"
+		},
+		{
+			"offsets": [-240, -500],
+			"loop": false,
+			"fps": 16,
+			"anim": "singUP",
+			"indices": [],
+			"name": "touchup"
+		},
+		{
+			"offsets": [-240, -500],
+			"loop": false,
+			"fps": 16,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "touchright"
+		},
+		{
+			"offsets": [-240, -500],
+			"loop": true,
+			"fps": 8,
+			"anim": "idle",
+			"indices": [],
+			"name": "idle"
+		}
+	],
+	"vocals_file": "",
+	"no_antialiasing": true,
+	"image": "characters/expie_hurt",
+	"position": [0, 90],
+	"healthicon": "expie",
+	"flip_x": true,
+	"healthbar_colors": [34, 32, 52],
+	"camera_position": [-60, 370],
+	"sing_duration": 4,
+	"scale": 7,
+	"_editor_isPlayer": true
+}

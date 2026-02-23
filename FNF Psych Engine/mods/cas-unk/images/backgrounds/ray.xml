@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="ray.png">
+	<!-- Created with Aseprite FNF XML Exporter Unnoficial Plugin -->
+	<!-- <link> -->
+	<SubTexture name="idle0000" x="0" y="32" width="320" height="16" frameX="0" frameY="0" frameWidth="320" frameHeight="16"/>
+	<SubTexture name="shoot0000" x="0" y="0" width="320" height="16" frameX="0" frameY="0" frameWidth="320" frameHeight="16"/>
+	<SubTexture name="shoot0001" x="320" y="0" width="320" height="16" frameX="0" frameY="0" frameWidth="320" frameHeight="16"/>
+	<SubTexture name="shoot0002" x="640" y="0" width="320" height="16" frameX="0" frameY="0" frameWidth="320" frameHeight="16"/>
+	<SubTexture name="shoot0003" x="0" y="16" width="320" height="16" frameX="0" frameY="0" frameWidth="320" frameHeight="16"/>
+	<SubTexture name="shoot0004" x="320" y="16" width="320" height="16" frameX="0" frameY="0" frameWidth="320" frameHeight="16"/>
+	<SubTexture name="shoot0005" x="640" y="16" width="320" height="16" frameX="0" frameY="0" frameWidth="320" frameHeight="16"/>
+</TextureAtlas>

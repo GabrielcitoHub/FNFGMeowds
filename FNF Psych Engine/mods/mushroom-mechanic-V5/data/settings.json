@@ -37,6 +37,13 @@
 		"keyboard": "SPACE",
 		"gamepad": "A"
 	},
+		{
+		"save": "arrowswap",
+		"name": "Swap Player 3 and 4 Arrows", //Name shown on the mod settings menu
+		"type": "bool",
+		"description": "Places the player 3 arrows in the right strum instead of the left strum and viceversa.", //Description shown on the mod settings menu
+		"value": false //This is the default value
+	},
 	{
 		"save": "player3",
 		"name": "Enable Player 3", //Name shown on the mod settings menu

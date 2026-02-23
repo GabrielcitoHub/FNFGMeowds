@@ -1,0 +1,103 @@
+{
+	"animations": [
+		{
+			"offsets": [-240, -500],
+			"loop": false,
+			"fps": 16,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "touchleft"
+		},
+		{
+			"offsets": [-240, -500],
+			"loop": false,
+			"fps": 16,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "touchdown"
+		},
+		{
+			"offsets": [-240, -500],
+			"loop": false,
+			"fps": 16,
+			"anim": "singUP",
+			"indices": [],
+			"name": "touchup"
+		},
+		{
+			"offsets": [-240, -500],
+			"loop": false,
+			"fps": 16,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "touchright"
+		},
+		{
+			"offsets": [-240, -500],
+			"loop": true,
+			"fps": 8,
+			"anim": "idle",
+			"indices": [],
+			"name": "idle"
+		},
+		{
+			"loop": true,
+			"offsets": [-240, -500],
+			"anim": "walk",
+			"fps": 8,
+			"name": "walk",
+			"indices": []
+		},
+		{
+			"offsets": [-240, -500],
+			"loop": false,
+			"fps": 16,
+			"anim": "singLEFTmiss",
+			"indices": [],
+			"name": "touchleft"
+		},
+		{
+			"offsets": [-240, -500],
+			"loop": false,
+			"fps": 16,
+			"anim": "singRIGHTmiss",
+			"indices": [],
+			"name": "touchright"
+		},
+		{
+			"offsets": [-240, -500],
+			"loop": false,
+			"fps": 16,
+			"anim": "singUPmiss",
+			"indices": [],
+			"name": "touchup"
+		},
+		{
+			"offsets": [-240, -500],
+			"loop": false,
+			"fps": 16,
+			"anim": "singDOWNmiss",
+			"indices": [],
+			"name": "touchdown"
+		},
+		{
+			"loop": false,
+			"offsets": [-240, -500],
+			"anim": "hit",
+			"fps": 0,
+			"name": "hit",
+			"indices": []
+		}
+	],
+	"vocals_file": "",
+	"no_antialiasing": true,
+	"image": "characters/expie",
+	"position": [0, 0],
+	"healthicon": "expie",
+	"flip_x": true,
+	"healthbar_colors": [34, 32, 52],
+	"camera_position": [-60, 370],
+	"sing_duration": 4,
+	"scale": 7,
+	"_editor_isPlayer": true
+}

@@ -1,0 +1,9 @@
+{
+	"name": "Casualties: Unknown",
+	"description": "A Casualties: Unknown FNF Mod!",
+	"restart":false,
+	"runsGlobally": false,
+	"color": [67, 82, 70],
+	"discordRPC": "863222024192262205",
+	"iconFramerate": 10
+}

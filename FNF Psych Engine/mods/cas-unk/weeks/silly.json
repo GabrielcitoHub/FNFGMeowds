@@ -1,0 +1,36 @@
+{
+	"storyName": "Expie",
+	"difficulties": "Normal",
+	"hideFreeplay": false,
+	"weekBackground": "weekex1",
+	"weekBefore": "tutorial",
+	"startUnlocked": true,
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"hideStoryMode": false,
+	"songs": [
+		[
+			"drop-capsule",
+			"pod",
+			[
+				138,
+				111,
+				235
+			]
+		],
+		[
+			"casualties",
+			"turret",
+			[
+				138,
+				111,
+				235
+			]
+		]
+	],
+	"weekName": "Silly",
+	"hiddenUntilUnlocked": false
+}

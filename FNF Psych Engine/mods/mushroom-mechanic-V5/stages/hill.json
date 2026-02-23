@@ -5,8 +5,8 @@
 	],
 	"_editorMeta": {
 		"boyfriend": "playable-sonic",
-		"dad": "sonic-exe",
-		"gf": "sonic"
+		"gf": "sonic",
+		"dad": "sonic-exe"
 	},
 	"boyfriend": [
 		215,
@@ -33,7 +33,7 @@
 			"angle": 0,
 			"name": "water",
 			"firstAnimation": "flow",
-			"antialiasing": true,
+			"antialiasing": false,
 			"flipY": false,
 			"scroll": [
 				1,
@@ -42,12 +42,12 @@
 			"alpha": 1,
 			"animations": [
 				{
-					"loop": true,
 					"offsets": null,
-					"anim": "flow",
+					"loop": true,
 					"fps": 12,
-					"name": "flow",
-					"indices": []
+					"anim": "flow",
+					"indices": [],
+					"name": "flow"
 				}
 			],
 			"type": "animatedSprite"
@@ -97,20 +97,20 @@
 			"alpha": 1,
 			"animations": [
 				{
-					"offsets": null,
 					"loop": true,
-					"fps": 8,
+					"offsets": null,
 					"anim": "green",
-					"indices": [],
-					"name": "green"
+					"fps": 8,
+					"name": "green",
+					"indices": []
 				},
 				{
-					"loop": true,
 					"offsets": null,
-					"anim": "exe",
+					"loop": true,
 					"fps": 2,
-					"name": "exe",
-					"indices": []
+					"anim": "exe",
+					"indices": [],
+					"name": "exe"
 				}
 			],
 			"type": "animatedSprite"
@@ -138,20 +138,20 @@
 			"alpha": 1,
 			"animations": [
 				{
-					"offsets": null,
 					"loop": true,
-					"fps": 8,
+					"offsets": null,
 					"anim": "red",
-					"indices": [],
-					"name": "red"
+					"fps": 8,
+					"name": "red",
+					"indices": []
 				},
 				{
-					"loop": true,
 					"offsets": null,
-					"anim": "exe",
+					"loop": true,
 					"fps": 2,
-					"name": "exe",
-					"indices": []
+					"anim": "exe",
+					"indices": [],
+					"name": "exe"
 				}
 			],
 			"type": "animatedSprite"
@@ -179,20 +179,85 @@
 			"alpha": 1,
 			"animations": [
 				{
-					"loop": true,
 					"offsets": null,
-					"anim": "exe",
+					"loop": true,
 					"fps": 1,
-					"name": "exe",
+					"anim": "exe",
+					"indices": [],
+					"name": "exe"
+				},
+				{
+					"offsets": null,
+					"loop": true,
+					"fps": 1,
+					"anim": "normal",
+					"indices": [],
+					"name": "normal"
+				}
+			],
+			"type": "animatedSprite"
+		},
+		{
+			"x": 237,
+			"y": 42,
+			"scale": [
+				1,
+				1
+			],
+			"image": "characters/tails-cc",
+			"flipX": true,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "tails",
+			"firstAnimation": "idle",
+			"antialiasing": false,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"animations": [
+				{
+					"loop": false,
+					"offsets": null,
+					"anim": "up",
+					"fps": 12,
+					"name": "up",
 					"indices": []
 				},
 				{
-					"loop": true,
+					"loop": false,
 					"offsets": null,
-					"anim": "normal",
-					"fps": 1,
-					"name": "normal",
+					"anim": "down",
+					"fps": 12,
+					"name": "down",
 					"indices": []
+				},
+				{
+					"offsets": null,
+					"indices": [],
+					"fps": 12,
+					"anim": "left",
+					"loop": false,
+					"name": "right"
+				},
+				{
+					"offsets": null,
+					"indices": [],
+					"fps": 12,
+					"anim": "right",
+					"loop": false,
+					"name": "left"
+				},
+				{
+					"offsets": null,
+					"indices": [],
+					"fps": 16,
+					"anim": "idle",
+					"loop": true,
+					"name": "idle"
 				}
 			],
 			"type": "animatedSprite"
@@ -211,15 +276,15 @@
 		220,
 		105
 	],
-	"camera_speed": 2,
-	"directory": "",
 	"opponent": [
 		82,
 		100
 	],
+	"directory": "",
+	"camera_speed": 2,
+	"hide_girlfriend": true,
 	"camera_opponent": [
 		-60,
 		80
-	],
-	"hide_girlfriend": true
+	]
 }

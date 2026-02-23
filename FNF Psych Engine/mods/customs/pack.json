@@ -1,0 +1,9 @@
+{
+	"name": "Custom",
+	"description": "Custom things lul",
+	"restart":false,
+	"runsGlobally": false,
+	"color": [170, 0, 255],
+	"discordRPC": "863222024192262205",
+	"iconFramerate": 10
+}

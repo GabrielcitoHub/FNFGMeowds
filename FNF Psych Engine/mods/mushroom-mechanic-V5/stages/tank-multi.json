@@ -1,0 +1,131 @@
+{
+	"preload": {
+		"images/tank1": 2,
+		"images/tankGround": 3,
+		"images/tankSky": 3,
+		"images/tank2": 3,
+		"images/tank3": 2,
+		"images/tankRuins": 3,
+		"images/tank4": 2,
+		"images/tankWatchtower": 2,
+		"images/tank5": 3,
+		"images/smokeRight": 2,
+		"images/tankRolling": 3,
+		"images/tankMountains": 2,
+		"images/tankBuildings": 2,
+		"images/tankClouds": 2,
+		"images/tank0": 3,
+		"images/smokeLeft": 2
+	},
+	"_editorMeta": {
+		"boyfriend": "bf",
+		"dad": "tankman",
+		"gf": "gf-tankmen"
+	},
+	"boyfriend": [
+		810,
+		100
+	],
+	"girlfriend": [
+		200,
+		65
+	],
+	"stageUI": "",
+	"objects": [
+		{
+			"type": "gf"
+		},
+		{
+			"type": "dad"
+		},
+		{
+			"type": "boyfriend"
+		},
+		{
+			"x": 1090,
+			"y": 483,
+			"scale": [
+				1,
+				1
+			],
+			"image": "characters/Pico_FNF_assetss",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "pico",
+			"firstAnimation": "idle",
+			"antialiasing": true,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"animations": [
+				{
+					"loop": true,
+					"offsets": [
+						0,
+						0
+					],
+					"anim": "idle",
+					"fps": 16,
+					"name": "Pico Idle Dance",
+					"indices": []
+				},
+				{
+					"loop": false,
+					"offsets": [
+						40,
+						40
+					],
+					"anim": "up",
+					"fps": 16,
+					"name": "pico Up note",
+					"indices": []
+				},
+				{
+					"loop": false,
+					"offsets": [
+						110,
+						-30
+					],
+					"anim": "down",
+					"fps": 16,
+					"name": "Pico Down Note",
+					"indices": []
+				},
+				{
+					"loop": false,
+					"offsets": [
+						90,
+						40
+					],
+					"anim": "left",
+					"fps": 16,
+					"name": "Pico NOTE LEFT",
+					"indices": []
+				},
+				{
+					"loop": false,
+					"offsets": [
+						-40,
+						20
+					],
+					"anim": "right",
+					"fps": 16,
+					"name": "Pico Note Right",
+					"indices": []
+				}
+			],
+			"type": "animatedSprite"
+		}
+	],
+	"defaultZoom": 0.9,
+	"opponent": [
+		20,
+		100
+	],
+	"directory": ""
+}

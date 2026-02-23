@@ -1,24 +1,16 @@
 local keys = {"left","down","up","right"}
 local danceDirections = {"left","down","up","right","left","down","up","right"}
-local directions = {'purple', 'blue', 'green', 'red', 'purple', 'blue', 'green', 'red'}
 local players = {3,4}
 local powerups = {}
 local flashings = {}
 local flashstates = {}
 local displays = 3
 local playersSprites = {}
-
-local timersTags = {}
-local timersTimes = {}
-local timersStartTimes = {}
-local timersLoops = {}
+local customTimer = require("mods/" .. modFolder .. "/scripts/modules/customTimer")
+local sections = {}
 
 local function getNoteX(lane)
-    if lane >= 4 then
-        return getPropertyFromGroup('opponentStrums', lane - 4, 'x')
-    else
-        return getPropertyFromGroup('playerStrums', lane, 'x')
-    end
+    return getPropertyFromGroup("strumLineNotes", lane, "x")
 end
 
 local function getPlayersSprites()
@@ -40,18 +32,13 @@ local function getPlayersSprites()
     return playersSprites
 end
 
-function table.contains (table, element)
+function table.contains(table, element)
     for _,value in pairs(table) do
         if value == element then
             return true
         end
     end
     return false
-end
-
-function table.set(t,i,v)
-    table.remove(t,i)
-    table.insert(t,i,v)
 end
 
 function onCreatePost()
@@ -73,66 +60,13 @@ function onCreatePost()
     end
 end
 
-function updateTimers(elapsed)
-    for i,v in ipairs(timersTags) do
-        local time = timersTimes[i]
-        local startTime = timersStartTimes[i]
-        local loopsLeft = timersLoops[i]
-        -- debugPrint(tostring("Time: "..time.." loopsLeft: "..loopsLeft.." StartTime: "..startTime))
-        if time > 0 then
-            time = time - (1 * elapsed)
-            table.set(timersTimes,i,time)
-        else
-            loopsLeft = loopsLeft - 1
-            table.set(timersTimes,i,startTime)
-            table.set(timersLoops,i,loopsLeft)
-            onCustomTimerCompleted(v,loopsLeft)
-            if loopsLeft <= 0 then
-                table.remove(timersTags,i)
-                table.remove(timersStartTimes,i)
-                table.remove(timersTimes,i)
-                table.remove(timersLoops,i)
-                break
-            end
-        end
+function onUpdatePost(dt)
+    customTimer:update(dt)
+    if sectionVisualNotes ~= nil then
+        table.insert(sections,sectionVisualNotes)
+        -- debugPrint(sections)
+        sectionVisualNotes = nil
     end
-end
-
-function runCustomTimer(tag,time,loops)
-    if not loops then
-        loops = 1
-    end
-    table.insert(timersTimes,time)
-    table.insert(timersStartTimes,time)
-    table.insert(timersLoops,loops)
-    table.insert(timersTags,tag)
-end
-
-function onCustomTimerCompleted(tag,loopsleft)
-    for plrIndex,plr in ipairs(players) do
-        if tag == tostring("player"..plr..'fs') or tag == tostring("player"..plr..'fsdown') or tag == tostring("player"..plr..'fsup') then
-            local fs = flashstates[plrIndex]
-            local plrSprite = playersSprites[plrIndex]
-            -- debugPrint(plrSprite)
-            setProperty(plrSprite..".visible", fs)
-            fs = not fs
-            if tag == tostring("player"..plr..'fsdown') or tag == tostring("player"..plr..'fsup') then
-                table.set(flashstates,plrIndex,fs)
-                table.set(flashings,plrIndex,true)
-                if loopsleft == 0 then
-                    setProperty(plrSprite..".visible", true)
-                    table.set(flashings,plrIndex,false)
-                end
-            end
-        end
-    end
-end
-
-local oldNoteTime = 0
-
-function onUpdatePost(elapsed)
-    updateTimers(elapsed)
-    updateCustomStrums()
     for plrIndex,plr in ipairs(players) do
         updateDisplay(plr)
         if getModSetting(tostring("player"..plr)) then
@@ -145,62 +79,77 @@ function onUpdatePost(elapsed)
                 setProperty("sticker.y",getProperty("powerdisplay.y")+newy)
             end
             for i, key in ipairs(keys) do
+                if #sections >= 2 then
+                    local removeSection = sections[1]
+                    for _,visualNotes in ipairs(removeSection) do
+                        for _,note in ipairs(visualNotes) do
+                            removeLuaSprite(note.sprite)
+                        end
+                    end
+                    table.remove(sections,1)
+                end
                 local data = i - 1
                 if plr == 3 then
                     data = data + 4
                 end
                 -- check for misses
                 local missedNotes = {}
-                for _,note in ipairs(visualNotes) do
-                    if note.lane == data then
-                        local timeDiff = math.abs(note.strumTime - getSongPosition())
-                        local collisionRange = 225
-                        if timeDiff <= collisionRange - 175 then
-                            table.insert(missedNotes,note)
+                local collisionRange = 225
+                -- debugPrint(sections or "none")
+                for sectionIndex,visualNotes in ipairs(sections or {}) do
+                    -- for _,note in ipairs(visualNotes) do
+                        -- if note.lane == data then
+                            -- local timeDiff = math.abs((note.strumTime+300) - getSongPosition())
+                            -- debugPrint(timeDiff)
+                            -- if timeDiff <= collisionRange then
+                                -- table.insert(missedNotes,note)
+                                -- debugPrint("MISS")
+                                -- debugPrint(timeDiff)
+                            -- end
+                        -- end
+                    -- end
+                    if #missedNotes > 0 then
+                        for noteIndex, missedNote in ipairs(missedNotes) do
+                            removeLuaSprite(missedNote.sprite)
+                            table.remove(visualNotes,noteIndex)
+                            sections[sectionIndex] = visualNotes
+                            onPlayerMiss(plr,plrIndex)
                         end
                     end
-                end
-                for missedNoteIndex,missedNote in ipairs(missedNotes) do
-                    table.remove(missedNotes,missedNoteIndex)
-                    removeLuaSprite(missedNote.sprite)
-                    onPlayerMiss(plr,plrIndex)
-                end
-                if getPropertyFromClass('flixel.FlxG', 'keys.justPressed.'..getModSetting(tostring("player"..plr.."-"..key.."key"))["keyboard"]) then
-                    playAnim("customStrum"..data,'pressed', true)
-                    setProperty("customStrum"..data..".visible",true)
-                    local closestNote = nil
-                    local closestTimeDiff = math.huge
-                    for noteIndex,note in ipairs(visualNotes) do
-                        if note.lane == data then
-                            local timeDiff = math.abs(note.strumTime - getSongPosition())
-                            local collisionRange = 225
-                            if timeDiff <= collisionRange and timeDiff < closestTimeDiff then
-                                note.index = noteIndex
-                                closestNote = note
-                                closestTimeDiff = timeDiff
+                    if getPropertyFromClass('flixel.FlxG', 'keys.justPressed.'..getModSetting(tostring("player"..plr.."-"..key.."key"))["keyboard"]) then
+                        playAnim("customStrum"..data,'pressed', true)
+                        setProperty("customStrum"..data..".visible",true)
+                        local closestNote = nil
+                        local closestTimeDiff = math.huge
+                        for noteIndex,note in ipairs(visualNotes) do
+                            if note.lane == data then
+                                local timeDiff = math.abs(note.strumTime - getSongPosition())
+                                if timeDiff <= collisionRange and timeDiff < closestTimeDiff then
+                                    note.index = noteIndex
+                                    closestNote = note
+                                    closestTimeDiff = timeDiff
+                                end
                             end
                         end
-                    end
-                    if closestNote then
-                        if oldNoteTime == closestNote.strumTime then
-                            debugPrint("COPY DETECTED! "..oldNoteTime)
+                        if closestNote then
+                            playAnim("customStrum"..data,'confirm', true)
+                            removeLuaSprite(closestNote.sprite)
+                            table.remove(visualNotes,closestNote.index)
+                            sections[sectionIndex] = visualNotes
+                            local idleWait = 0.3
+                            local danceDir = danceDirections[closestNote.lane + 1]
+                            playAnim(closestNote.player,danceDir)
+                            playersSprites[plrIndex] = closestNote.player
+                            runTimer(tostring("resetidle"..plr), idleWait)
+                        else
+                            -- debugPrint("EEEEEEEEEEEEEEEE")
+                            onPlayerMiss(plr,plrIndex)
                         end
-                        oldNoteTime = closestNote.strumTime
-                        playAnim("customStrum"..data,'confirm', true)
-                        removeLuaSprite(closestNote.sprite)
-                        table.remove(visualNotes,closestNote.index)
-                        local idleWait = 0.3
-                        local danceDir = danceDirections[closestNote.lane + 1]
-                        playAnim(closestNote.player,danceDir)
-                        table.set(playersSprites,plrIndex,closestNote.player)
-                        runTimer(tostring("resetidle"..plr), idleWait)
-                    else
-                        onPlayerMiss(plr,plrIndex)
                     end
-                end
-                if getPropertyFromClass('flixel.FlxG', 'keys.justReleased.'..getModSetting(tostring("player"..plr.."-"..key.."key"))["keyboard"]) then
-                    playAnim("customStrum"..data,'static', true)
-                    setProperty("customStrum"..data..".visible",false)
+                    if getPropertyFromClass('flixel.FlxG', 'keys.justReleased.'..getModSetting(tostring("player"..plr.."-"..key.."key"))["keyboard"]) then
+                        playAnim("customStrum"..data,'static', true)
+                        setProperty("customStrum"..data..".visible",false)
+                    end
                 end
             end
         end
@@ -210,13 +159,13 @@ end
 function onPlayerMiss(plr,plrIndex)
     local flashing = flashings[plrIndex]
     if not flashing then
-        table.set(flashings,plrIndex,true)
+        flashings[plrIndex] = true
         local powerup = powerups[plrIndex]
         local timerName = "player"..plr..'fsdown'
         -- debugPrint(powerup)
-        table.set(powerups,plrIndex,powerup-1)
+        powerups[plrIndex] = powerup-1
         playSound('power_down', 1)
-        runCustomTimer(timerName,0.05,32)
+        customTimer:runTimer(timerName,0.05,32)
         updatePowerDisplay(plr)
         local plrSprite = playersSprites[plrIndex]
         if powerup == 0 then
@@ -226,8 +175,29 @@ function onPlayerMiss(plr,plrIndex)
     end
 end
 
+function customTimer:onTimerCompleted(tag,loopsleft)
+    for plrIndex,plr in ipairs(players) do
+        if tag == tostring("player"..plr..'fs') or tag == tostring("player"..plr..'fsdown') or tag == tostring("player"..plr..'fsup') then
+            local fs = flashstates[plrIndex]
+            local plrSprite = playersSprites[plrIndex]
+            -- debugPrint(plrSprite)
+            setProperty(plrSprite..".visible", fs)
+            fs = not fs
+            if tag == tostring("player"..plr..'fsdown') or tag == tostring("player"..plr..'fsup') then
+                flashstates[plrIndex] = fs
+                flashings[plrIndex] = true
+                if loopsleft == 0 then
+                    setProperty(plrSprite..".visible", true)
+                    flashings[plrIndex] = false
+                end
+            end
+        end
+    end
+end
+
 function onTimerCompleted(tag,loops,loopsleft)
     if tag == "getPlrsSprs" then
+        updateCustomStrums()
         playersSprites = getPlayersSprites()
     end
     for plrIndex,plr in ipairs(players) do
@@ -297,14 +267,45 @@ function getPowerup(plr)
     return powerup
 end
 
+function convertNum(num)
+    if num == 3 then
+        return 0
+    elseif num == 2 then
+        return 1
+    elseif num == 1 then
+        return 2
+    elseif num == 0 then
+        return 3
+    elseif num == 4 then
+        return 7
+    elseif num == 5 then
+        return 6
+    elseif num == 6 then
+        return 5
+    elseif num == 7 then
+        return 4
+    end
+    return num
+end
+
 function updateCustomStrums()
     local strum = 0
-    for _,_ in ipairs(invertTable(customStrums)) do
-        for _ = 4, 1, -1 do
-            local x = getNoteX(strum)
+    if not getModSetting("arrowswap") then
+        for _ = 0, 7 do
+            local x = getNoteX(convertNum(7-strum))
+            local y = getPropertyFromGroup("strumLineNotes", 7-strum, "y")
             local spriteName = tostring("customStrum"..strum)
             setProperty(spriteName..".x",x)
-            setProperty(spriteName..".y",getPropertyFromGroup("strumLineNotes", strum, "y"))
+            setProperty(spriteName..".y",y)
+            strum = strum + 1
+        end
+    else
+        for _ = 0, 7 do
+            local x = getNoteX(strum)
+            local y = getPropertyFromGroup("strumLineNotes", strum, "y")
+            local spriteName = tostring("customStrum"..strum)
+            setProperty(spriteName..".x",x)
+            setProperty(spriteName..".y",y)
             strum = strum + 1
         end
     end

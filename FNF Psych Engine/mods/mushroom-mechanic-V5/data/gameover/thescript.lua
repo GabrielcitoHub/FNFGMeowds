@@ -3,7 +3,7 @@ local loopsbgs = {}
 local popupx = 0
 local camerabffollow = true
 setOnLuas("mxrunning", false)
-local runningspeed = 4
+local runningspeed = 200
 local overworld = false
 local mxJumpSteps = {}
 local block = 0
@@ -18,9 +18,9 @@ local inGameDadY = getProperty('dad.y')
 local groundlevel = inGameBoyfriendY
 local groundGravitylevel = inGameBoyfriendY
 local mxGroundGravitylevel = inGameDadY
-local gravity = 175  -- Gravity value (affects falling speed
+local gravity = 245  -- Gravity value (affects falling speed
 local mxbfjump = false
-local jumpPower = -65  -- Jump velocity (affects how high the jump is
+local jumpPower = -115  -- Jump velocity (affects how high the jump is
 local bfVelocityY = 0  -- Initial velocity for the character in the Y-axis
 local bfOnGround = true  -- Check if BF is on the ground
 
@@ -203,47 +203,49 @@ function onUpdate(elapsed)
 
     -- gravity stuff
 
-    -- Apply gravity to bfVelocityY if he's not on the ground
-    if not bfOnGround then
-        bfVelocityY = bfVelocityY + gravity * elapsed
-        if getProperty('boyfriend.animation.curAnim.name') == "idle" then
-            playAnim('boyfriend', 'jump', true)
-        end
-    end
-        
-    -- Move the boyfriend based on his velocity
-    local bfY = inGameBoyfriendY
-    inGameBoyfriendY = bfY + bfVelocityY * elapsed
-    
-    -- Check if the space key is pressed for jumping
-    if bfOnGround and getPropertyFromClass("flixel.FlxG","keys.justPressed."..getModSetting("cfgmxactionkey")["keyboard"]) or gamepadJustPressed(0, getModSetting("cfgmxactionkey")["gamepad"]) and mxrunning then
-        bfmxjump = true
-    end
-
-    if bfmxjump then
-        bfmxjump = false
-        if overworld then
-            table.insert(mxJumpSteps,curStep+5)
-        end
-        setProperty("boyfriend.flipX", true)
-        -- debugPrint("Jump!")
-        bfVelocityY = jumpPower  -- Set the jump velocity when space is pressed
-        inGameBoyfriendY = inGameBoyfriendY - 1
-        bfOnGround = false  -- BF is no longer on the ground
-    end
-    
-    -- Check if BF is hitting the ground (assuming 500 is the ground level)
-    if inGameBoyfriendY >= groundGravitylevel then
+    if mxrunning then
+        -- Apply gravity to bfVelocityY if he's not on the ground
         if not bfOnGround then
-            -- debugPrint("ground!")
-            playLegsAnim(getProperty('boyfriend.curCharacter'),true)
-            if getProperty('boyfriend.animation.curAnim.name') == "jump" then
-                playAnim('boyfriend', 'idle', true)
+            bfVelocityY = bfVelocityY + gravity * elapsed
+            if getProperty('boyfriend.animation.curAnim.name') == "idle" then
+                playAnim('boyfriend', 'jump', true)
             end
         end
-        bfOnGround = true  -- BF is on the ground
-        inGameBoyfriendY = groundGravitylevel  -- Reset BF to ground level
-        bfVelocityY = 0  -- Reset vertical velocity when BF hits the ground
+            
+        -- Move the boyfriend based on his velocity
+        local bfY = inGameBoyfriendY
+        inGameBoyfriendY = bfY + bfVelocityY * elapsed
+        
+        -- Check if the space key is pressed for jumping
+        if bfOnGround and getPropertyFromClass("flixel.FlxG","keys.justPressed."..getModSetting("cfgmxactionkey")["keyboard"]) or gamepadJustPressed(0, getModSetting("cfgmxactionkey")["gamepad"]) and mxrunning then
+            bfmxjump = true
+        end
+
+        if bfmxjump and bfOnGround then
+            bfmxjump = false
+            if overworld then
+                table.insert(mxJumpSteps,curStep+5)
+            end
+            setProperty("boyfriend.flipX", true)
+            -- debugPrint("Jump!")
+            bfVelocityY = jumpPower  -- Set the jump velocity when space is pressed
+            inGameBoyfriendY = inGameBoyfriendY - 0.01
+            bfOnGround = false  -- BF is no longer on the ground
+        end
+        
+        -- Check if BF is hitting the ground (assuming 500 is the ground level)
+        if inGameBoyfriendY >= groundGravitylevel then
+            if not bfOnGround then
+                playLegsAnim(getProperty('boyfriend.curCharacter'),true)
+                if getProperty('boyfriend.animation.curAnim.name') == "jump" then
+                    playAnim('boyfriend', 'idle', true)
+                end
+            end
+            bfOnGround = true  -- BF is on the ground
+            inGameBoyfriendY = groundGravitylevel  -- Reset BF to ground level
+            bfVelocityY = 0  -- Reset vertical velocity when BF hits the ground
+        end
+
     end
 
     -- mx gravity stuff
@@ -286,13 +288,13 @@ function onUpdate(elapsed)
 
     -- move bf and mx
     if mxrunning then
-        updatedMovingSpeed = (runningspeed * 60) * elapsed
+        updatedMovingSpeed = runningspeed * elapsed
         setProperty("boyfriend.flipX", false)
         inGameBoyfriendX = inGameBoyfriendX - updatedMovingSpeed
         setProperty("boyfriend.x", inGameBoyfriendX)
         setProperty("boyfriend.y", inGameBoyfriendY)
         if camerabffollow then
-            triggerEvent("Camera Follow Pos", inGameBoyfriendX-50, inGameBoyfriendY+30)
+            triggerEvent("Camera Follow Pos", inGameBoyfriendX-35, inGameBoyfriendY+20)
             -- triggerEvent("Camera Follow Pos", getProperty('bflegs.x'), getProperty('bflegs.y'))
             -- triggerEvent("Camera Follow Pos", getProperty('legs.x'), getProperty('legs.y'))
         else
@@ -446,30 +448,30 @@ function onTimerCompleted(tag, loops, loopsLeft)
         groundGravitylevel = groundlevel
         bfOnGround = false
     elseif tag == "pit" then
-        groundGravitylevel = groundGravitylevel + 200
+        groundGravitylevel = groundGravitylevel + 16
         bfOnGround = false
         runTimer("block2",0.2)
     elseif tag == "block" then
-        if inGameBoyfriendY >= 725 then
+        if inGameBoyfriendY >= groundGravitylevel then
             kill()
         end
-        groundGravitylevel = groundlevel - 100
+        groundGravitylevel = groundlevel - 16
     elseif tag == "breakBlock" or tag == "breakBlock1" then
         breakBlock()
     elseif tag == "block2" then
         if inGameBoyfriendY >= 822 then
             kill()
         end
-        groundGravitylevel = groundlevel - 100
+        groundGravitylevel = groundlevel - 16
         runTimer("resetGround",0.1)
     elseif tag == "pit2" then
         local time = 0.3
-        groundGravitylevel = groundGravitylevel + 200
+        groundGravitylevel = groundGravitylevel + 16
         bfOnGround = false
         runTimer("pit2test",0.29)
         runTimer("resetGround",time)
     elseif tag == "pit3" then
-        groundGravitylevel = groundGravitylevel + 200
+        groundGravitylevel = groundGravitylevel + 16
         bfOnGround = false
         runTimer("pit3test",0.29)
         runTimer("resetGround",0.3)

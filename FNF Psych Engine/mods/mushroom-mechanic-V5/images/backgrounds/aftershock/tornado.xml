@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="tornado.png">
+	<!-- Created with Aseprite FNF XML Exporter Unnoficial Plugin -->
+	<!-- <link> -->
+	<SubTexture name="idle0000" x="0" y="0" width="48" height="24" frameX="36" frameY="9" frameWidth="84" frameHeight="33"/>
+	<SubTexture name="idle0001" x="48" y="0" width="48" height="24" frameX="37" frameY="9" frameWidth="85" frameHeight="33"/>
+</TextureAtlas>

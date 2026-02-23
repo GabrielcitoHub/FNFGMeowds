@@ -1,0 +1,27 @@
+{
+	"storyName": "",
+	"difficulties": "Hard",
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"weekBefore": "tutorial",
+	"startUnlocked": true,
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"hideStoryMode": true,
+	"songs": [
+		[
+			"aftersh0ck",
+			"",
+			[
+				80,
+				13,
+				120
+			]
+		]
+	],
+	"hiddenUntilUnlocked": false,
+	"weekName": "Executable Mania"
+}

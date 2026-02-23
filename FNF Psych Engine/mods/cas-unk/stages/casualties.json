@@ -1,0 +1,132 @@
+{
+	"camera_boyfriend": [
+		0,
+		0
+	],
+	"_editorMeta": {
+		"boyfriend": "expie",
+		"gf": "gf",
+		"dad": "dad"
+	},
+	"stageUI": "normal",
+	"boyfriend": [
+		770,
+		95
+	],
+	"girlfriend": [
+		580,
+		230
+	],
+	"defaultZoom": 0.45,
+	"objects": [
+		{
+			"x": -5217,
+			"y": -271,
+			"scale": [
+				10,
+				10
+			],
+			"image": "backgrounds/casualties/bottomfull",
+			"flipX": false,
+			"filters": 2,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "bottom",
+			"antialiasing": false,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 0.7,
+			"type": "sprite"
+		},
+		{
+			"x": -5217,
+			"y": -346,
+			"scale": [
+				10,
+				10
+			],
+			"image": "backgrounds/casualties/full",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "bg",
+			"antialiasing": false,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"type": "sprite"
+		},
+		{
+			"type": "gf"
+		},
+		{
+			"type": "dad"
+		},
+		{
+			"type": "boyfriend"
+		},
+		{
+			"x": -482,
+			"y": 421,
+			"scale": [
+				10,
+				10
+			],
+			"image": "backgrounds/ray",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "ray",
+			"firstAnimation": "idle",
+			"antialiasing": false,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"animations": [
+				{
+					"offsets": null,
+					"indices": [],
+					"fps": 0,
+					"anim": "idle",
+					"loop": true,
+					"name": "idle"
+				},
+				{
+					"offsets": null,
+					"indices": [],
+					"fps": 24,
+					"anim": "shoot",
+					"loop": false,
+					"name": "shoot"
+				}
+			],
+			"type": "animatedSprite"
+		}
+	],
+	"camera_girlfriend": [
+		850,
+		500
+	],
+	"opponent": [
+		-1020,
+		100
+	],
+	"directory": "",
+	"camera_speed": 1,
+	"hide_girlfriend": true,
+	"camera_opponent": [
+		0,
+		0
+	]
+}

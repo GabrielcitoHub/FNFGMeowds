@@ -1,0 +1,75 @@
+{
+	"camera_boyfriend": [
+		80,
+		80
+	],
+	"preload": {
+		"images/stageback": 3,
+		"images/stagefront": 3,
+		"images/stagecurtains": 2,
+		"images/stage_light": 2
+	},
+	"_editorMeta": {
+		"boyfriend": "bf-pixel2",
+		"dad": "niko",
+		"gf": "gf"
+	},
+	"boyfriend": [
+		766,
+		12
+	],
+	"stageUI": "",
+	"girlfriend": [
+		400,
+		130
+	],
+	"objects": [
+		{
+			"x": 565,
+			"y": -56,
+			"scale": [
+				1,
+				1
+			],
+			"image": "backgrounds/starting_area",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "background",
+			"antialiasing": false,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"type": "sprite"
+		},
+		{
+			"type": "gf"
+		},
+		{
+			"type": "dad"
+		},
+		{
+			"type": "boyfriend"
+		}
+	],
+	"camera_girlfriend": [
+		0,
+		0
+	],
+	"defaultZoom": 7,
+	"opponent": [
+		634,
+		13
+	],
+	"directory": "",
+	"camera_speed": 2,
+	"hide_girlfriend": true,
+	"camera_opponent": [
+		-150,
+		80
+	]
+}
