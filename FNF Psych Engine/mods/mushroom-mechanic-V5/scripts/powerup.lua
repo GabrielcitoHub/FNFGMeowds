@@ -86,7 +86,11 @@ function mushroommiss()
         powerup = powerup - 1
         setOnLuas("powerup", powerup)
         setOnLuas("mxupdatepowerup", true)
-        runTimer('flashingpowerdown',0.05,32)
+
+        local flashingTimers = {0.2, 0.15, 0.05}
+        local flashTimer = flashingTimers[difficulty + 1]
+
+        runTimer('flashingpowerdown',flashTimer,32)
         -- debugPrint(powerup)
         if powerup >= 0 then
             playSound('power_down', 1)

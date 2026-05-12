@@ -1,0 +1,79 @@
+{
+	"animations": [
+		{
+			"offsets": [0, 0],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "left"
+		},
+		{
+			"offsets": [0, 0],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "down"
+		},
+		{
+			"offsets": [0, 0],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "up"
+		},
+		{
+			"offsets": [0, 0],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "right"
+		},
+		{
+			"offsets": [0, 0],
+			"loop": false,
+			"fps": 24,
+			"anim": "shoot",
+			"indices": [],
+			"name": "shoot"
+		},
+		{
+			"offsets": [0, 0],
+			"loop": false,
+			"fps": 24,
+			"anim": "jump",
+			"indices": [],
+			"name": "jump"
+		},
+		{
+			"loop": true,
+			"offsets": [0, 0],
+			"anim": "idle",
+			"fps": 22,
+			"name": "idle",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [0, 0],
+			"anim": "shootMultiple",
+			"fps": 24,
+			"name": "multipleShoot",
+			"indices": []
+		}
+	],
+	"vocals_file": "",
+	"no_antialiasing": true,
+	"image": "characters/cube_nomic",
+	"position": [160, 650],
+	"healthicon": "cube",
+	"flip_x": false,
+	"healthbar_colors": [255, 40, 40],
+	"camera_position": [-50, -290],
+	"sing_duration": 1.5,
+	"scale": 10,
+	"_editor_isPlayer": false
+}

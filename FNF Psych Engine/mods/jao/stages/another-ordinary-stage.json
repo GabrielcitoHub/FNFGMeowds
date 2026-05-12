@@ -1,0 +1,101 @@
+{
+	"objects": [
+		{
+			"x": -200,
+			"y": -220,
+			"scale": [
+				2000,
+				2000
+			],
+			"filters": 3,
+			"color": "cbdbfc",
+			"angle": 0,
+			"name": "bg",
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"type": "square"
+		},
+		{
+			"x": -220,
+			"y": 260,
+			"scale": [
+				2000,
+				200
+			],
+			"filters": 3,
+			"color": "9badb7",
+			"angle": 0,
+			"name": "bgtop",
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"type": "square"
+		},
+		{
+			"x": -240,
+			"y": 720,
+			"scale": [
+				2000,
+				50
+			],
+			"filters": 3,
+			"color": "000000",
+			"angle": 0,
+			"name": "line",
+			"scroll": [
+				1,
+				1.05
+			],
+			"alpha": 0.5,
+			"type": "square"
+		},
+		{
+			"type": "gf"
+		},
+		{
+			"type": "dad"
+		},
+		{
+			"type": "boyfriend"
+		}
+	],
+	"camera_opponent": [
+		0,
+		0
+	],
+	"girlfriend": [
+		400,
+		130
+	],
+	"_editorMeta": {
+		"boyfriend": "bf",
+		"gf": "gf",
+		"dad": "cube"
+	},
+	"camera_girlfriend": [
+		0,
+		0
+	],
+	"boyfriend": [
+		770,
+		100
+	],
+	"opponent": [
+		100,
+		100
+	],
+	"hide_girlfriend": false,
+	"directory": "",
+	"camera_speed": 1,
+	"defaultZoom": 0.9,
+	"stageUI": "normal",
+	"camera_boyfriend": [
+		0,
+		0
+	]
+}

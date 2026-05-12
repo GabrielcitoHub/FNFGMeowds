@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="tails-tornado.png">
+	<!-- Created with Aseprite FNF XML Exporter Unnoficial Plugin -->
+	<!-- <link> -->
+	<SubTexture name="down0000" x="0" y="18" width="25" height="18" frameX="0" frameY="0" frameWidth="25" frameHeight="18"/>
+	<SubTexture name="down0001" x="25" y="18" width="25" height="18" frameX="0" frameY="0" frameWidth="25" frameHeight="18"/>
+	<SubTexture name="idle0000" x="0" y="0" width="25" height="18" frameX="0" frameY="0" frameWidth="25" frameHeight="18"/>
+	<SubTexture name="left0000" x="50" y="18" width="25" height="18" frameX="0" frameY="0" frameWidth="25" frameHeight="18"/>
+	<SubTexture name="left0001" x="0" y="36" width="25" height="18" frameX="0" frameY="0" frameWidth="25" frameHeight="18"/>
+	<SubTexture name="right0000" x="25" y="36" width="25" height="18" frameX="0" frameY="0" frameWidth="25" frameHeight="18"/>
+	<SubTexture name="right0001" x="50" y="36" width="25" height="18" frameX="0" frameY="0" frameWidth="25" frameHeight="18"/>
+	<SubTexture name="up0000" x="25" y="0" width="25" height="18" frameX="0" frameY="0" frameWidth="25" frameHeight="18"/>
+	<SubTexture name="up0001" x="50" y="0" width="25" height="18" frameX="0" frameY="0" frameWidth="25" frameHeight="18"/>
+</TextureAtlas>

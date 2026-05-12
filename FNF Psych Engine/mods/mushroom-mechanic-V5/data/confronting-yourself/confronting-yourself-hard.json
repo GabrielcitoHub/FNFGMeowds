@@ -1532,9 +1532,21 @@
 			]
 		],
 		[
+			63875,
+			[
+				["Camera Follow Pos", "260", "70"]
+			]
+		],
+		[
 			64000,
 			[
 				["Play Animation", "idle", "Dad"]
+			]
+		],
+		[
+			95875,
+			[
+				["Camera Follow Pos", "", ""]
 			]
 		],
 		[

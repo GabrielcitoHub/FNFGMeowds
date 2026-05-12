@@ -20,7 +20,7 @@ local rightPlayerNotes
 
 function onCreatePost()
     local startPath = string.match(chartPath, ".*(data\\.*)")
-    local path1 = string.match(startPath, "(.*\\)").."second-chart.json"
+    local path1 = string.match(startPath, "(.*\\)") .. "second-chart.json"
     local secondChartData = callMethodFromClass("tjson.TJSON", "parse", {getTextFromFile(path1)})
     if secondChartData ~= nil then
         chartName = secondChartData["chartname"]
@@ -47,13 +47,17 @@ function onSectionHit()
     local spawnSection = curSection + 2
     if chartData == nil then return end
     local section = chartData.notes[spawnSection] or {}
+    local sections = sections or {}
+    table.insert(sections, section)
+    setOnLuas("sections", sections)
+
     for j, note in ipairs(section.sectionNotes or {}) do
         local time = note[1]
         local lane = note[2]
         local sustain = note[3] or 0
 
         local spriteName = 'note_' .. spawnSection .. '_' .. j
-        local x = getProperty("customStrum"..lane..".x")  -- posición horizontal según lane (ajustable)
+        local x = getProperty("customStrum" .. lane .. ".x")  -- posición horizontal según lane (ajustable)
         local y = -200  -- empieza fuera de pantalla
         
         local arrowSpr = leftPlayerNotes
@@ -94,6 +98,9 @@ function onSectionHit()
         end
         table.insert(visualNotes, visualNoteData)
     end
+    
+    setOnLuas("visualNotes", visualNotes)
+
     if #visualNotes > 0 then
         -- debugPrint(tostring("there is "..#visualNotes.." sprite notes"))
         -- setOnLuas("sectionVisualNotes",visualNotes)
@@ -167,12 +174,25 @@ function onUpdatePost(elapsed)
             end
         end
     end
-    for _,removeNote in ipairs(removedNotes) do
-        table.remove(visualNotes,removeNote.index)
+
+    if extraRemovedNotes then
+        for _,removeNote in ipairs(extraRemovedNotes) do
+            table.insert(removedNotes, removeNote)
+        end
+
+        extraRemovedNotes = {}
     end
+
+    local i = 0
+    for _,removeNote in ipairs(removedNotes) do
+        table.remove(visualNotes, removeNote.index - i)
+        i = i + 1
+    end
+
     -- for _,usedNote in ipairs(usedNotes) do
     --     table.insert(visualNotes,usedNote)
     -- end
+
     removedNotes = {}
 end
 

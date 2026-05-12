@@ -20,9 +20,14 @@
 	],
 	"stageUI": "",
 	"boyfriend": [
-		165,
-		-350
+		145,
+		-370
 	],
+	"camera_girlfriend": [
+		0,
+		0
+	],
+	"defaultZoom": 2,
 	"objects": [
 		{
 			"x": 320,
@@ -59,7 +64,7 @@
 			"color": "FFFFFF",
 			"angle": 0,
 			"name": "clouds",
-			"antialiasing": true,
+			"antialiasing": false,
 			"flipY": false,
 			"scroll": [
 				0.7,
@@ -69,8 +74,8 @@
 			"type": "sprite"
 		},
 		{
-			"x": 413,
-			"y": 404,
+			"x": 268,
+			"y": 369,
 			"scale": [
 				4,
 				4
@@ -91,12 +96,12 @@
 			"alpha": 1,
 			"animations": [
 				{
-					"offsets": null,
 					"loop": true,
-					"fps": 64,
+					"offsets": null,
 					"anim": "idle",
-					"indices": [],
-					"name": "idle"
+					"fps": 16,
+					"name": "idle",
+					"indices": []
 				}
 			],
 			"type": "animatedSprite"
@@ -111,11 +116,6 @@
 			"type": "boyfriend"
 		}
 	],
-	"camera_girlfriend": [
-		0,
-		0
-	],
-	"defaultZoom": 2,
 	"camera_speed": 1,
 	"directory": "",
 	"opponent": [

@@ -2,39 +2,39 @@
 	"animations": [
 		{
 			"loop": true,
-			"offsets": [-220, -700],
+			"offsets": [-200, -700],
 			"anim": "idle",
 			"fps": 8,
 			"name": "idle",
 			"indices": []
 		},
 		{
-			"loop": true,
-			"offsets": [-210, -700],
+			"loop": false,
+			"offsets": [-200, -700],
 			"anim": "singLEFT",
 			"fps": 8,
 			"name": "left",
 			"indices": []
 		},
 		{
-			"loop": true,
-			"offsets": [-220, -702],
+			"loop": false,
+			"offsets": [-200, -700],
 			"anim": "singDOWN",
 			"fps": 8,
 			"name": "down",
 			"indices": []
 		},
 		{
-			"loop": true,
-			"offsets": [-230, -700],
+			"loop": false,
+			"offsets": [-200, -700],
 			"anim": "singUP",
 			"fps": 8,
 			"name": "up",
 			"indices": []
 		},
 		{
-			"loop": true,
-			"offsets": [-230, -700],
+			"loop": false,
+			"offsets": [-200, -700],
 			"anim": "singRIGHT",
 			"fps": 8,
 			"name": "right",
@@ -48,7 +48,7 @@
 	"healthicon": "face",
 	"flip_x": true,
 	"healthbar_colors": [100, 101, 255],
-	"camera_position": [-310, 670],
+	"camera_position": [-310, 700],
 	"sing_duration": 4,
 	"scale": 2,
 	"_editor_isPlayer": true

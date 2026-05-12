@@ -5,9 +5,10 @@
 	],
 	"_editorMeta": {
 		"boyfriend": "playable-sonic",
-		"gf": "sonic",
-		"dad": "sonic-exe"
+		"dad": "sonic-exe",
+		"gf": "sonic"
 	},
+	"stageUI": "normal",
 	"boyfriend": [
 		215,
 		100
@@ -16,7 +17,6 @@
 		400,
 		130
 	],
-	"stageUI": "normal",
 	"defaultZoom": 5,
 	"objects": [
 		{
@@ -42,12 +42,12 @@
 			"alpha": 1,
 			"animations": [
 				{
-					"offsets": null,
 					"loop": true,
-					"fps": 12,
+					"offsets": null,
 					"anim": "flow",
-					"indices": [],
-					"name": "flow"
+					"fps": 12,
+					"name": "flow",
+					"indices": []
 				}
 			],
 			"type": "animatedSprite"
@@ -97,20 +97,20 @@
 			"alpha": 1,
 			"animations": [
 				{
-					"loop": true,
 					"offsets": null,
-					"anim": "green",
+					"loop": true,
 					"fps": 8,
-					"name": "green",
-					"indices": []
+					"anim": "green",
+					"indices": [],
+					"name": "green"
 				},
 				{
-					"offsets": null,
 					"loop": true,
-					"fps": 2,
+					"offsets": null,
 					"anim": "exe",
-					"indices": [],
-					"name": "exe"
+					"fps": 2,
+					"name": "exe",
+					"indices": []
 				}
 			],
 			"type": "animatedSprite"
@@ -138,20 +138,20 @@
 			"alpha": 1,
 			"animations": [
 				{
-					"loop": true,
 					"offsets": null,
-					"anim": "red",
+					"loop": true,
 					"fps": 8,
-					"name": "red",
-					"indices": []
+					"anim": "red",
+					"indices": [],
+					"name": "red"
 				},
 				{
-					"offsets": null,
 					"loop": true,
-					"fps": 2,
+					"offsets": null,
 					"anim": "exe",
-					"indices": [],
-					"name": "exe"
+					"fps": 2,
+					"name": "exe",
+					"indices": []
 				}
 			],
 			"type": "animatedSprite"
@@ -179,23 +179,87 @@
 			"alpha": 1,
 			"animations": [
 				{
-					"offsets": null,
 					"loop": true,
-					"fps": 1,
+					"offsets": null,
 					"anim": "exe",
-					"indices": [],
-					"name": "exe"
+					"fps": 1,
+					"name": "exe",
+					"indices": []
 				},
 				{
-					"offsets": null,
 					"loop": true,
-					"fps": 1,
+					"offsets": null,
 					"anim": "normal",
-					"indices": [],
-					"name": "normal"
+					"fps": 1,
+					"name": "normal",
+					"indices": []
 				}
 			],
 			"type": "animatedSprite"
+		},
+		{
+			"x": -39,
+			"y": -77,
+			"scale": [
+				1,
+				1
+			],
+			"image": "backgrounds/hill/checkerboard",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "checkerboard",
+			"antialiasing": false,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"type": "sprite"
+		},
+		{
+			"type": "gf"
+		},
+		{
+			"type": "dad"
+		},
+		{
+			"x": 212,
+			"y": 62,
+			"scale": [
+				1,
+				1
+			],
+			"image": "backgrounds/hill/tornado",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "tornado",
+			"firstAnimation": "idle",
+			"antialiasing": false,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"animations": [
+				{
+					"offsets": null,
+					"loop": true,
+					"fps": 16,
+					"anim": "idle",
+					"indices": [],
+					"name": "idle"
+				}
+			],
+			"type": "animatedSprite"
+		},
+		{
+			"type": "boyfriend"
 		},
 		{
 			"x": 237,
@@ -220,71 +284,103 @@
 			"alpha": 1,
 			"animations": [
 				{
-					"loop": false,
 					"offsets": null,
+					"loop": false,
+					"fps": 12,
 					"anim": "up",
-					"fps": 12,
-					"name": "up",
-					"indices": []
+					"indices": [],
+					"name": "up"
 				},
 				{
-					"loop": false,
 					"offsets": null,
+					"loop": false,
+					"fps": 12,
 					"anim": "down",
+					"indices": [],
+					"name": "down"
+				},
+				{
+					"loop": false,
+					"offsets": null,
+					"anim": "left",
 					"fps": 12,
-					"name": "down",
+					"name": "right",
 					"indices": []
 				},
 				{
-					"offsets": null,
-					"indices": [],
-					"fps": 12,
-					"anim": "left",
 					"loop": false,
-					"name": "right"
-				},
-				{
 					"offsets": null,
-					"indices": [],
-					"fps": 12,
 					"anim": "right",
-					"loop": false,
-					"name": "left"
+					"fps": 12,
+					"name": "left",
+					"indices": []
 				},
 				{
-					"offsets": null,
-					"indices": [],
-					"fps": 16,
-					"anim": "idle",
 					"loop": true,
-					"name": "idle"
+					"offsets": null,
+					"anim": "idle",
+					"fps": 16,
+					"name": "idle",
+					"indices": []
 				}
 			],
 			"type": "animatedSprite"
 		},
 		{
-			"type": "gf"
-		},
-		{
-			"type": "dad"
-		},
-		{
-			"type": "boyfriend"
+			"x": 239,
+			"y": 96,
+			"scale": [
+				0.8,
+				0.8
+			],
+			"image": "backgrounds/hill/chaos-emeralds",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "emeralds",
+			"firstAnimation": "idle",
+			"antialiasing": false,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"animations": [
+				{
+					"offsets": null,
+					"indices": [],
+					"fps": 0,
+					"anim": "idle",
+					"loop": false,
+					"name": "idle"
+				},
+				{
+					"offsets": null,
+					"indices": [],
+					"fps": 12,
+					"anim": "spawn",
+					"loop": false,
+					"name": "spawn"
+				}
+			],
+			"type": "animatedSprite"
 		}
 	],
 	"camera_girlfriend": [
 		220,
 		105
 	],
+	"camera_speed": 2,
+	"directory": "",
 	"opponent": [
 		82,
 		100
 	],
-	"directory": "",
-	"camera_speed": 2,
-	"hide_girlfriend": true,
 	"camera_opponent": [
 		-60,
 		80
-	]
+	],
+	"hide_girlfriend": true
 }

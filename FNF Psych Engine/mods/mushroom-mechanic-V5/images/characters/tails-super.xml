@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="tails-super.png">
+	<!-- Created with Aseprite FNF XML Exporter Unnoficial Plugin -->
+	<!-- <link> -->
+	<SubTexture name="down0000" x="48" y="132" width="48" height="44" frameX="0" frameY="0" frameWidth="48" frameHeight="44"/>
+	<SubTexture name="down0001" x="96" y="132" width="48" height="44" frameX="0" frameY="0" frameWidth="48" frameHeight="44"/>
+	<SubTexture name="fly0000" x="48" y="176" width="48" height="44" frameX="0" frameY="0" frameWidth="48" frameHeight="44"/>
+	<SubTexture name="fly0001" x="96" y="176" width="48" height="44" frameX="0" frameY="0" frameWidth="48" frameHeight="44"/>
+	<SubTexture name="idle0000" x="240" y="44" width="48" height="44" frameX="0" frameY="0" frameWidth="48" frameHeight="44"/>
+	<SubTexture name="idle0001" x="0" y="88" width="48" height="44" frameX="0" frameY="0" frameWidth="48" frameHeight="44"/>
+	<SubTexture name="idle0002" x="48" y="88" width="48" height="44" frameX="0" frameY="0" frameWidth="48" frameHeight="44"/>
+	<SubTexture name="idle0003" x="96" y="88" width="48" height="44" frameX="0" frameY="0" frameWidth="48" frameHeight="44"/>
+	<SubTexture name="idle0004" x="144" y="88" width="48" height="44" frameX="0" frameY="0" frameWidth="48" frameHeight="44"/>
+	<SubTexture name="idle0005" x="192" y="88" width="48" height="44" frameX="0" frameY="0" frameWidth="48" frameHeight="44"/>
+	<SubTexture name="left0000" x="144" y="132" width="48" height="44" frameX="0" frameY="0" frameWidth="48" frameHeight="44"/>
+	<SubTexture name="left0001" x="192" y="132" width="48" height="44" frameX="0" frameY="0" frameWidth="48" frameHeight="44"/>
+	<SubTexture name="right0000" x="240" y="132" width="48" height="44" frameX="0" frameY="0" frameWidth="48" frameHeight="44"/>
+	<SubTexture name="right0001" x="0" y="176" width="48" height="44" frameX="0" frameY="0" frameWidth="48" frameHeight="44"/>
+	<SubTexture name="transform0000" x="0" y="44" width="48" height="44" frameX="0" frameY="0" frameWidth="48" frameHeight="44"/>
+	<SubTexture name="transform0001" x="48" y="44" width="48" height="44" frameX="0" frameY="0" frameWidth="48" frameHeight="44"/>
+	<SubTexture name="transform0002" x="96" y="44" width="48" height="44" frameX="0" frameY="0" frameWidth="48" frameHeight="44"/>
+	<SubTexture name="transform0003" x="144" y="44" width="48" height="44" frameX="0" frameY="0" frameWidth="48" frameHeight="44"/>
+	<SubTexture name="transform0004" x="192" y="44" width="48" height="44" frameX="0" frameY="0" frameWidth="48" frameHeight="44"/>
+	<SubTexture name="unleash0000" x="0" y="0" width="48" height="44" frameX="0" frameY="0" frameWidth="48" frameHeight="44"/>
+	<SubTexture name="unleash0001" x="48" y="0" width="48" height="44" frameX="0" frameY="0" frameWidth="48" frameHeight="44"/>
+	<SubTexture name="unleash0002" x="96" y="0" width="48" height="44" frameX="0" frameY="0" frameWidth="48" frameHeight="44"/>
+	<SubTexture name="unleash0003" x="144" y="0" width="48" height="44" frameX="0" frameY="0" frameWidth="48" frameHeight="44"/>
+	<SubTexture name="unleash0004" x="192" y="0" width="48" height="44" frameX="0" frameY="0" frameWidth="48" frameHeight="44"/>
+	<SubTexture name="unleash0005" x="240" y="0" width="48" height="44" frameX="0" frameY="0" frameWidth="48" frameHeight="44"/>
+	<SubTexture name="up0000" x="240" y="88" width="48" height="44" frameX="0" frameY="0" frameWidth="48" frameHeight="44"/>
+	<SubTexture name="up0001" x="0" y="132" width="48" height="44" frameX="0" frameY="0" frameWidth="48" frameHeight="44"/>
+</TextureAtlas>

@@ -1,0 +1,55 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [80, -60],
+			"anim": "Growl",
+			"fps": 32,
+			"name": "Growl",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [150, -120],
+			"anim": "Right Alt",
+			"fps": 32,
+			"name": "Right Alt",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [40, -50],
+			"anim": "Scream",
+			"fps": 32,
+			"name": "Scream",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [200, 50],
+			"anim": "Show You",
+			"fps": 32,
+			"name": "Show You",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [110, 0],
+			"anim": "Shut Up",
+			"fps": 32,
+			"name": "Shut Up",
+			"indices": []
+		}
+	],
+	"vocals_file": "",
+	"no_antialiasing": false,
+	"image": "characters/fleetway2",
+	"position": [0, 0],
+	"healthicon": "face",
+	"flip_x": false,
+	"healthbar_colors": [161, 161, 161],
+	"camera_position": [-140, 50],
+	"sing_duration": 4,
+	"scale": 1,
+	"_editor_isPlayer": false
+}

@@ -1,39 +1,22 @@
 local keys = {"left","down","up","right"}
 local danceDirections = {"left","down","up","right","left","down","up","right"}
 local players = {3,4}
+
 local powerups = {}
 local flashings = {}
 local flashstates = {}
 local displays = 3
 local playersSprites = {}
+
 local customTimer = require("mods/" .. modFolder .. "/scripts/modules/customTimer")
-local sections = {}
 
 local function getNoteX(lane)
     return getPropertyFromGroup("strumLineNotes", lane, "x")
 end
 
-local function getPlayersSprites()
-    local playersSprites = {}
-    for plrIndex,plr in ipairs(players) do
-        local data = 0
-        if plr == 3 then
-            data = data + 4
-        end
-        for _,note in ipairs(visualNotes) do
-            if note.lane == data then
-                if not table.contains(playersSprites,note.player) then
-                    table.insert(playersSprites,plrIndex,note.player)
-                    break
-                end
-            end
-        end
-    end
-    return playersSprites
-end
-
-function table.contains(table, element)
-    for _,value in pairs(table) do
+-- 🔹 helper
+local function contains(tbl, element)
+    for _,value in pairs(tbl) do
         if value == element then
             return true
         end
@@ -41,32 +24,64 @@ function table.contains(table, element)
     return false
 end
 
+-- 🔹 IMPORTANT: get shared data
+local function getPlayersSprites()
+    local result = {}
+
+    local visualNotes = getVar("visualNotes") -- 🔥 get from loadSecondChart
+    if not visualNotes then return result end
+
+    for plrIndex, plr in ipairs(players) do
+        local laneOffset = (plr == 3) and 4 or 0
+
+        for _, note in ipairs(visualNotes) do
+            if note.lane == laneOffset then
+                if not contains(result, note.player) then
+                    table.insert(result, note.player)
+                end
+                break
+            end
+        end
+    end
+
+    return result
+end
+
 function onCreatePost()
     createCustomStrums()
-    runTimer("getPlrsSprs",0.1)
-    for plrIndex,plr in ipairs(players) do
-        table.insert(powerups,plrIndex,2)
-        table.insert(flashings,plrIndex,false)
-        table.insert(flashstates,plrIndex,false)
-        if getModSetting(tostring("player"..plr)) then
-            createDisplay(plr)
-            displays = displays + 1
+
+    runTimer("getPlrsSprs", 0.1)
+
+    for plrIndex, plr in ipairs(players) do
+        powerups[plrIndex] = 2
+        flashings[plrIndex] = false
+        flashstates[plrIndex] = false
+
+        local plrName = "player" .. plr
+
+        createDisplay(plrName)
+
+        if not getModSetting(plrName) then
+            setProperty(plrName .. "powerdisplay.visible", false)
         else
-            createDisplay(plr)
-        end
-        if not getModSetting(tostring("player"..plr)) then
-            setProperty("player"..plr.."powerdisplay.visible",false)
+            displays = displays + 1
         end
     end
 end
 
 function onUpdatePost(dt)
     customTimer:update(dt)
-    if sectionVisualNotes ~= nil then
-        table.insert(sections,sectionVisualNotes)
-        -- debugPrint(sections)
-        sectionVisualNotes = nil
+
+    -- 🔥 get sections from shared
+    local sections = getVar("sections")
+    local sectionVisualNotes = getVar("sectionVisualNotes")
+
+    if sectionVisualNotes ~= nil and sections ~= nil then
+        table.insert(sections, sectionVisualNotes)
+        setVar("sections", sections) -- keep synced
+        setVar("sectionVisualNotes", nil)
     end
+    
     for plrIndex,plr in ipairs(players) do
         updateDisplay(plr)
         if getModSetting(tostring("player"..plr)) then
@@ -78,78 +93,123 @@ function onUpdatePost(dt)
                 setProperty("sticker.x",getProperty("powerdisplay.x"))
                 setProperty("sticker.y",getProperty("powerdisplay.y")+newy)
             end
+
+            -- debugPrint(sections or "none")
+
             for i, key in ipairs(keys) do
-                if #sections >= 2 then
-                    local removeSection = sections[1]
-                    for _,visualNotes in ipairs(removeSection) do
-                        for _,note in ipairs(visualNotes) do
-                            removeLuaSprite(note.sprite)
-                        end
-                    end
-                    table.remove(sections,1)
-                end
+                -- Handle iNput
+                local keyInput = getModSetting(tostring("player" .. plr .. "-" .. key .. "key"))["keyboard"]
                 local data = i - 1
                 if plr == 3 then
                     data = data + 4
                 end
-                -- check for misses
-                local missedNotes = {}
-                local collisionRange = 225
-                -- debugPrint(sections or "none")
-                for sectionIndex,visualNotes in ipairs(sections or {}) do
-                    -- for _,note in ipairs(visualNotes) do
-                        -- if note.lane == data then
-                            -- local timeDiff = math.abs((note.strumTime+300) - getSongPosition())
-                            -- debugPrint(timeDiff)
-                            -- if timeDiff <= collisionRange then
-                                -- table.insert(missedNotes,note)
-                                -- debugPrint("MISS")
+
+                local secs = sections
+                if secs then
+                    if #secs > 2 then
+                        local removeSection = secs[1]
+                        local visualNotes = removeSection.sectionNotes
+                        for _,note in ipairs(visualNotes) do
+                            removeLuaSprite(note.sprite)
+                        end
+
+                        table.remove(secs,1)
+                    end
+                    -- check for misses
+                    local missedNotes = {}
+                    local collisionRange = 225
+                    for sectionIndex,visualNotes in ipairs(secs) do
+                        -- Handle missing
+                        -- for _,note in ipairs(visualNotes) do
+                            -- if note.lane == data then
+                                -- local timeDiff = math.abs((note.strumTime+300) - getSongPosition())
                                 -- debugPrint(timeDiff)
+                                -- if timeDiff <= collisionRange then
+                                    -- table.insert(missedNotes,note)
+                                    -- debugPrint("MISS")
+                                    -- debugPrint(timeDiff)
+                                -- end
                             -- end
                         -- end
-                    -- end
-                    if #missedNotes > 0 then
-                        for noteIndex, missedNote in ipairs(missedNotes) do
-                            removeLuaSprite(missedNote.sprite)
-                            table.remove(visualNotes,noteIndex)
-                            sections[sectionIndex] = visualNotes
-                            onPlayerMiss(plr,plrIndex)
-                        end
-                    end
-                    if getPropertyFromClass('flixel.FlxG', 'keys.justPressed.'..getModSetting(tostring("player"..plr.."-"..key.."key"))["keyboard"]) then
-                        playAnim("customStrum"..data,'pressed', true)
-                        setProperty("customStrum"..data..".visible",true)
-                        local closestNote = nil
-                        local closestTimeDiff = math.huge
-                        for noteIndex,note in ipairs(visualNotes) do
-                            if note.lane == data then
-                                local timeDiff = math.abs(note.strumTime - getSongPosition())
-                                if timeDiff <= collisionRange and timeDiff < closestTimeDiff then
-                                    note.index = noteIndex
-                                    closestNote = note
-                                    closestTimeDiff = timeDiff
+                        -- if #missedNotes > 0 then
+                        --     for noteIndex, missedNote in ipairs(missedNotes) do
+                        --         removeLuaSprite(missedNote.sprite)
+                        --         table.remove(visualNotes,noteIndex)
+                        --         sections[sectionIndex] = visualNotes
+                        --         onPlayerMiss(plr,plrIndex)
+                        --     end
+                        -- end
+
+                        -- Handle input
+                        -- debugPrint(keyInput)
+                        if getPropertyFromClass('flixel.FlxG', 'keys.justPressed.' .. keyInput) then
+                            -- debugPrint("Key pressed!! " .. keyInput)
+                            playAnim("customStrum" .. data, 'pressed', true)
+                            setProperty("customStrum" .. data .. ".visible", true)
+
+                            local closestNote = nil
+                            local closestTimeDiff = math.huge
+                            local visualNotes = secs[1].sectionNotes
+                            -- debugPrint(#secs)
+                            -- debugPrint(#visualNotes)
+                            for noteIndex,note in ipairs(visualNotes) do
+                                local time = note[1]
+                                local lane = note[2]
+                                if lane == data then
+                                    local timeDiff = math.abs(time - getSongPosition())
+                                    local cond1 = timeDiff <= collisionRange
+                                    local cond2 = timeDiff < closestTimeDiff
+
+                                    -- debugPrint(cond1)
+                                    -- debugPrint(cond2)
+
+                                    if cond1 and cond2 then
+                                        debugPrint("POG")
+                                        -- note.index = noteIndex
+                                        closestNote = note
+                                        closestTimeDiff = timeDiff
+                                    end
                                 end
                             end
+
+
+                            -- debugPrint((closestNote or "nah") .. " !!!")
+                            if closestNote then
+                                playAnim("customStrum" .. data, 'confirm', true)
+                                -- removeLuaSprite(closestNote.sprite)
+                                -- table.remove(visualNotes, closestNote.index)
+                                -- sections[sectionIndex] = visualNotes
+                                table.insert(extraRemovedNotes, {index = i})
+                                setOnLuas("extraRemovedNotes", extraRemovedNotes)
+
+                                local idleWait = 0.3
+                                local danceDir = danceDirections[closestNote.lane + 1]
+
+                                playAnim(closestNote.player,danceDir)
+                                playersSprites[plrIndex] = closestNote.player
+
+                                runTimer(tostring("resetidle" .. plr), idleWait)
+                            else
+                                -- debugPrint("EEEEEEEEEEEEEEEE")
+                                onPlayerMiss(plr, plrIndex)
+                            end
                         end
-                        if closestNote then
-                            playAnim("customStrum"..data,'confirm', true)
-                            removeLuaSprite(closestNote.sprite)
-                            table.remove(visualNotes,closestNote.index)
-                            sections[sectionIndex] = visualNotes
-                            local idleWait = 0.3
-                            local danceDir = danceDirections[closestNote.lane + 1]
-                            playAnim(closestNote.player,danceDir)
-                            playersSprites[plrIndex] = closestNote.player
-                            runTimer(tostring("resetidle"..plr), idleWait)
-                        else
-                            -- debugPrint("EEEEEEEEEEEEEEEE")
-                            onPlayerMiss(plr,plrIndex)
-                        end
+
+                        
                     end
-                    if getPropertyFromClass('flixel.FlxG', 'keys.justReleased.'..getModSetting(tostring("player"..plr.."-"..key.."key"))["keyboard"]) then
-                        playAnim("customStrum"..data,'static', true)
-                        setProperty("customStrum"..data..".visible",false)
+                else
+                    -- debugPrint(keyInput)
+                    if getPropertyFromClass('flixel.FlxG', 'keys.justPressed.' .. keyInput) then
+                        -- debugPrint("Key pressed!! " .. keyInput)
+                        playAnim("customStrum" .. data, 'pressed', true)
+                        setProperty("customStrum" .. data .. ".visible", true)
+                        onPlayerMiss(plr, plrIndex)
                     end
+                end
+
+                if getPropertyFromClass('flixel.FlxG', 'keys.justReleased.' .. keyInput) then
+                    playAnim("customStrum" .. data, 'static', true)
+                    setProperty("customStrum" .. data.. ".visible",false)
                 end
             end
         end
@@ -195,15 +255,16 @@ function customTimer:onTimerCompleted(tag,loopsleft)
     end
 end
 
-function onTimerCompleted(tag,loops,loopsleft)
+function onTimerCompleted(tag, loops, loopsleft)
     if tag == "getPlrsSprs" then
         updateCustomStrums()
         playersSprites = getPlayersSprites()
     end
+
     for plrIndex,plr in ipairs(players) do
-        if tag == tostring("resetidle"..plr) then
-            local plrSprite = playersSprites[plr-2]
-            playAnim(plrSprite,"idle",true)
+        if tag == tostring("resetidle" .. plr) then
+            local plrSprite = playersSprites[plr - 2]
+            playAnim(plrSprite, "idle", true)
         end
     end
 end
@@ -213,6 +274,7 @@ function invertTable(t)
     for i = #t, 1, -1 do
         table.insert(inverted, t[i])
     end
+
     return inverted
 end
 
@@ -221,20 +283,20 @@ function createCustomStrums()
     for _,notePath in ipairs(invertTable(customStrums)) do
         for _ = 4, 1, -1 do
             local x = getNoteX(strum)
-            local spriteName = tostring("customStrum"..strum)
+            local spriteName = tostring("customStrum" .. strum)
             -- debugPrint(spriteName)
-            makeAnimatedLuaSprite(spriteName,notePath,x,getPropertyFromGroup("strumLineNotes", strum, "y"))
+            makeAnimatedLuaSprite(spriteName, notePath, x, getPropertyFromGroup("strumLineNotes", strum, "y"))
             scaleObject(spriteName, 0.7, 0.7)
-            setObjectCamera(spriteName,"other")
+            setObjectCamera(spriteName, "other")
             arrowDir = string.upper(danceDirections[strum + 1])
            -- Agregamos una animación básica
-            addAnimationByPrefix(spriteName, 'static', "arrow"..arrowDir, 0, true)
-            addAnimationByPrefix(spriteName, 'pressed', tostring(string.lower(arrowDir).." press"), 0, true)
-            addAnimationByPrefix(spriteName, 'confirm', tostring(string.lower(arrowDir).." confirm"), 10, true)
+            addAnimationByPrefix(spriteName, 'static', "arrow" .. arrowDir, 0, true)
+            addAnimationByPrefix(spriteName, 'pressed', tostring(string.lower(arrowDir) ..  " press"), 0, true)
+            addAnimationByPrefix(spriteName, 'confirm', tostring(string.lower(arrowDir) .. " confirm"), 10, true)
             playAnim(spriteName, 'static', true)
             
             addLuaSprite(spriteName)
-            setProperty(spriteName..".visible",false)
+            setProperty(spriteName .. ".visible", false)
             -- debugPrint((tostring("customStrum"..(notePathIndex-1)..i-1)))
             strum = strum + 1
         end
@@ -242,24 +304,25 @@ function createCustomStrums()
 end
 
 function createDisplay(plr)
-    local spritename = "player"..plr..'powerdisplay'
+    local spritename = "player" .. plr .. 'powerdisplay'
     local y = getProperty('powerdisplay.y') or 600
     if downscroll then
         y = getProperty('powerdisplay.y') or 30
     end
-    makeLuaSprite(spritename,tostring('powerstates/'..getPowerup(plr-2)),((50+(getProperty('powerdisplay.height') or 50))*displays)-150,y)
-    scaleObject(spritename,scaleSize,scaleSize)
-    setProperty(spritename..".antialiasing", false)
+
+    makeLuaSprite(spritename, tostring('powerstates/' .. getPowerup(plr - 2)), ((50 + (getProperty('powerdisplay.height') or 50)) * displays) - 150, y)
+    scaleObject(spritename, scaleSize, scaleSize)
+    setProperty(spritename .. ".antialiasing", false)
     setObjectCamera(spritename,"hud")
     addLuaSprite(spritename, true)
 end
 
 function updateDisplay(plr)
-    setProperty("player"..plr.."powerdisplay.y",getProperty('powerdisplay.y'))
+    setProperty("player" .. plr .. "powerdisplay.y", getProperty('powerdisplay.y'))
 end
 
 function updatePowerDisplay(plr,powerup)
-    loadGraphic("player"..plr.."powerdisplay", tostring('powerstates/'..getPowerup(plr-2)))
+    loadGraphic("player" .. plr .. "powerdisplay", tostring('powerstates/' .. getPowerup(plr - 2)))
 end
 
 function getPowerup(plr)
@@ -292,20 +355,21 @@ function updateCustomStrums()
     local strum = 0
     if not getModSetting("arrowswap") then
         for _ = 0, 7 do
-            local x = getNoteX(convertNum(7-strum))
-            local y = getPropertyFromGroup("strumLineNotes", 7-strum, "y")
-            local spriteName = tostring("customStrum"..strum)
-            setProperty(spriteName..".x",x)
-            setProperty(spriteName..".y",y)
+            local i = 7 - strum
+            local x = getNoteX(convertNum(i))
+            local y = getPropertyFromGroup("strumLineNotes", i, "y")
+            local spriteName = tostring("customStrum" .. strum)
+            setProperty(spriteName .. ".x", x)
+            setProperty(spriteName .. ".y", y)
             strum = strum + 1
         end
     else
         for _ = 0, 7 do
             local x = getNoteX(strum)
             local y = getPropertyFromGroup("strumLineNotes", strum, "y")
-            local spriteName = tostring("customStrum"..strum)
-            setProperty(spriteName..".x",x)
-            setProperty(spriteName..".y",y)
+            local spriteName = tostring("customStrum" .. strum)
+            setProperty(spriteName .. ".x", x)
+            setProperty(spriteName .. ".y", y)
             strum = strum + 1
         end
     end
